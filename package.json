@@ -31,14 +31,14 @@
     "core-js": "2.4.1",
     "googleapis": "19.0.0",
     "jquery": "3.2.1",
-    "moment": "^2.19.3",
+    "moment": "^2.21.0",
     "perfect-scrollbar": "1.1.0",
     "rxjs": "5.4.2",
     "web-animations-js": "^2.3.1",
     "zone.js": "0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.4.2",
+    "@angular/cli": "^1.7.3",
     "@angular/compiler-cli": "4.4.4",
     "@types/bootstrap": "3.3.32",
     "@types/chartist": "0.9.34",
@@ -57,6 +57,6 @@
     "protractor": "5.1.0",
     "ts-node": "2.0.0",
     "tslint": "4.5.0",
-    "typescript": "2.4.2"
+    "typescript": "^2.7.2"
   }
 }

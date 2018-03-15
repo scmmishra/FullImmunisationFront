@@ -1,0 +1,55 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-header" data-background-color="red">
+          <h4 class="title">{{ childName }}</h4>
+          <p class="category">Cute little child</p>
+        </div>
+        <div class="card-content">
+          <form>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">{{ now | date }}</label>
+                  <input type="text" class="form-control" value="{{test | date: 'yyyy'}}" disabled>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">{{ childName }}</label>
+                  <input type="text" class="form-control" disabled>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">{{ aadharNumber }}</label>
+                  <input type="email" class="form-control" disabled>
+                </div>
+              </div>
+            </div>
+            <h4 class="title">Vaccines Pending</h4>
+            <table class="table">
+              <tbody>
+                  <tr *ngFor="let vaccine of vaccinesList">
+                      <td>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="optionsCheckboxes">
+                              </label>
+                          </div>
+                      </td>
+                      <td>{{ vaccine.name }}</td>
+                      <td>{{ vaccine.timing }}</td>
+                      <td>{{ vaccine.notes }}</td>
+                  </tr>
+              </tbody>
+          </table>
+            <button type="submit" class="btn btn-danger pull-right">Update Immunization Chart</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
