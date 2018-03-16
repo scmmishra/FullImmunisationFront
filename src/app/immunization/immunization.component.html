@@ -9,22 +9,19 @@
         <div class="card-content">
           <form>
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <div class="form-group form-black label-floating is-empty">
-                  <label class="control-label">{{ now | date }}</label>
-                  <input type="text" class="form-control" value="{{test | date: 'yyyy'}}" disabled>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group form-black label-floating is-empty">
-                  <label class="control-label">{{ childName }}</label>
-                  <input type="text" class="form-control" disabled>
+                  <h4 class="control-label">{{ now | date }}</h4>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group form-black label-floating is-empty">
-                  <label class="control-label">{{ aadharNumber }}</label>
-                  <input type="email" class="form-control" disabled>
+                  <h4 class="control-label">{{ childName }}</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-black label-floating is-empty">
+                  <h4 class="control-label">{{ aadharNumber }}</h4>
                 </div>
               </div>
             </div>
