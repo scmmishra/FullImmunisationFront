@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { SharedModule } from '../../shared.module';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -28,7 +26,7 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor(public translate: TranslateService) { }
+  constructor() { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
