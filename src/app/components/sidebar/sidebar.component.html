@@ -3,7 +3,8 @@
         <div class="logo-img">
             <img src="/assets/img/angular2-logo-red.png"/>
         </div>
-        Stupid App
+        {{ 'MAIN.TITLE' | translate }}
+        <!-- STUPID APP -->
     </a>
 </div>
 <div class="sidebar-wrapper">
@@ -42,8 +43,20 @@
             <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
                 <a  [routerLink]="[menuItem.path]">
                     <i class="material-icons">{{menuItem.icon}}</i>
-                    <p>{{menuItem.title}}</p>
+                    <p>{{menuItem.title | translate }}</p>
                 </a>
+            </li>
+            <li *ngIf="translate.currentLang == 'en'">
+                <a (click)="translate.use('hi')">
+                        <i class="material-icons">translate</i>
+                        <p>हिंदी भाषा</p>
+                    </a>
+            </li>
+            <li *ngIf="translate.currentLang == 'hi'">
+                    <a (click)="translate.use('en')">
+                            <i class="material-icons">translate</i>
+                            <p>English</p>
+                        </a>
             </li>
         </ul>
     </div>
