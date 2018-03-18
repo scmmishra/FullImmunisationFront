@@ -3,7 +3,7 @@
         <div class="logo-img">
             <img src="/assets/img/angular2-logo-red.png"/>
         </div>
-        Stupid App
+        {{ 'main.Title' | translate }}
     </a>
 </div>
 <div class="sidebar-wrapper">
@@ -46,5 +46,8 @@
                 </a>
             </li>
         </ul>
+        <select #langSelect (change)="translate.use(langSelect.value)">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+        </select>
     </div>
 </div>

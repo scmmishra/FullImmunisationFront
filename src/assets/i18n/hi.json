@@ -1,0 +1,10 @@
+{
+    "main":{
+        "Title": "बेवकूफ ऐप"
+    },
+    "sidebar": {
+        "Dashboard": "डैशबोर्ड",
+        "Immunization": "प्रतिरक्षा",
+        "User Profile": "उपयोगकर्ता प्रोफ़ाइल"
+    }
+}

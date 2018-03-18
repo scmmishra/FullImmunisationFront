@@ -5,6 +5,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
+import {TranslateService} from '@ngx-translate/core';
 
 declare const $: any;
 
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
 
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-    constructor( public location: Location, private router: Router) {}
+    constructor( public location: Location, private router: Router, public translate: TranslateService) {}
 
     ngOnInit() {
         $.material.init();

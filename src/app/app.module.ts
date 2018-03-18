@@ -18,6 +18,7 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { ImmunizationComponent } from './immunization/immunization.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ImmunizationComponent } from './immunization/immunization.component';
     HttpModule,
     ComponentsModule,
     RouterModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [],

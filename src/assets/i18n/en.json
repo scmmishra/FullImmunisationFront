@@ -1,0 +1,10 @@
+{
+    "main":{
+        "Title": "Stupid App"
+    },
+    "sidebar": {
+        "Dashboard": "Dashboard",
+        "Immunization": "Immunization",
+        "User Profile": "User Profile"
+    }
+}
