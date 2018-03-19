@@ -6,7 +6,8 @@
     "SIDEBAR": {
         "DASHBOARD": "Dashboard",
         "IMMUNIZATION": "Immunization",
-        "USER_PROFILE": "User Profile"
+        "USER_PROFILE": "User Profile",
+        "REGISTRATION": "Registration"
     },
     "BCG1":{
         "TITLE": "BCG 1",
