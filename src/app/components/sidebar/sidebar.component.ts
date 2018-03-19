@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -8,25 +9,34 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: 'dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: 'user-profile', title: 'User Profile',  icon:'person', class: '' },
+    { path: 'dashboard', title: 'SIDEBAR.DASHBOARD',  icon: 'dashboard', class: '' },
+    { path: 'immunization', title: 'SIDEBAR.IMMUNIZATION',  icon: 'child_care', class: '' },
+    { path: 'user-profile', title: 'SIDEBAR.USER_PROFILE',  icon:'person', class: '' },
     { path: 'table-list', title: 'Table List',  icon:'content_paste', class: '' },
     { path: 'typography', title: 'Typography',  icon:'library_books', class: '' },
     { path: 'icons', title: 'Icons',  icon:'bubble_chart', class: '' },
     { path: 'maps', title: 'Maps',  icon:'location_on', class: '' },
-    { path: 'notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    { path: 'upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+    { path: 'notifications', title: 'Notifications',  icon:'notifications', class: '' }
 ];
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
+//   template: `
+//   <h4>{{ 'MAIN.TITLE' | translate }}</h4>
+// `,
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  constructor(private translate: TranslateService) {
+    translate.addLangs(["en", "hi"]);
+    translate.setDefaultLang('en');
+
+    let browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|hi/) ? browserLang : 'en');
+}
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);

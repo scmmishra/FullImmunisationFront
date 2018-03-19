@@ -1,0 +1,52 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-header" data-background-color="red">
+          <h4 class="title">{{ childName }}</h4>
+          <p class="category">Cute little child</p>
+        </div>
+        <div class="card-content">
+          <form>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group form-black label-floating is-empty">
+                  <h4 class="control-label">{{ now | date }}</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-black label-floating is-empty">
+                  <h4 class="control-label">{{ childName }}</h4>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-black label-floating is-empty">
+                  <h4 class="control-label">{{ aadharNumber }}</h4>
+                </div>
+              </div>
+            </div>
+            <h4 class="title">Vaccines Pending</h4>
+            <table class="table">
+              <tbody>
+                  <tr *ngFor="let vaccine of vaccinesList">
+                      <td>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="optionsCheckboxes">
+                              </label>
+                          </div>
+                      </td>
+                      <td>{{ vaccine.name }}</td>
+                      <td>{{ vaccine.timing }}</td>
+                      <td>{{ vaccine.notes }}</td>
+                  </tr>
+              </tbody>
+          </table>
+            <button type="submit" class="btn btn-danger pull-right">Update Immunization Chart</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
