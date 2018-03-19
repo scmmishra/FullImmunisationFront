@@ -1,6 +1,19 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
+      <div>
+          <form role="search">
+              <div class="col-md-4 form-group form-black is-empty">
+                  <input type="text" class="form-control" placeholder="Search">
+                  <span class="material-input"></span>
+              </div>
+              <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i><div class="ripple-container"></div>
+              </button>
+          </form>
+      </div>
+    </div>
+    <div class="row">
       <div class="card">
         <div class="card-header" data-background-color="red">
           <h4 class="title">{{ childName }}</h4>
@@ -36,13 +49,13 @@
                               </label>
                           </div>
                       </td>
-                      <td>{{ vaccine.name }}</td>
-                      <td>{{ vaccine.timing }}</td>
-                      <td>{{ vaccine.notes }}</td>
+                      <td>{{ vaccine.name | translate }}</td>
+                      <td>{{ vaccine.timing | translate }}</td>
+                      <td>{{ vaccine.notes | translate }}</td>
                   </tr>
               </tbody>
           </table>
-            <button type="submit" class="btn btn-danger pull-right">Update Immunization Chart</button>
+            <button type="submit" class="btn btn-danger pull-right">{{ 'MAIN.UPDATE' | translate }}</button>
             <div class="clearfix"></div>
           </form>
         </div>
