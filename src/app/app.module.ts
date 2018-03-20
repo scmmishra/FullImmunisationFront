@@ -22,6 +22,8 @@ import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { RegistrationComponent } from './registration/registration.component';
+import { DatepickerModule } from 'angular2-material-datepicker'
+
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
@@ -50,6 +52,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
+    DatepickerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
