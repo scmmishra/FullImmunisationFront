@@ -1,10 +1,28 @@
 {
     "MAIN":{
-        "TITLE": "बेवकूफ ऐप"
+        "TITLE": "बेवकूफ ऐप",
+        "UPDATE": "प्रविष्टि दर्ज करें",
+        "REGISTER": "रजिस्टर"
     },
     "SIDEBAR": {
         "DASHBOARD": "डैशबोर्ड",
         "IMMUNIZATION": "प्रतिरक्षा",
-        "USER_PROFILE": "उपयोगकर्ता प्रोफ़ाइल"
+        "USER_PROFILE": "उपयोगकर्ता प्रोफ़ाइल",
+        "REGISTRATION": "Registration"
+    },
+    "BCG1":{
+        "TITLE": "BCG 1",
+        "TIMING": "जन्म होने पर",
+        "NOTES": "निर्वहन से पहले नवजात शिशु को टीका दें"
+    },
+    "OPV1":{
+        "TITLE": "OPV 1",
+        "TIMING": "जन्म होने पर",
+        "NOTES": "निर्वहन से पहले नवजात शिशु को टीका दें"
+    },
+    "HEPB1":{
+        "TITLE": "HEP B1",
+        "TIMING": "जन्म होने पर",
+        "NOTES": "निर्वहन से पहले नवजात शिशु को टीका दें"
     }
 }

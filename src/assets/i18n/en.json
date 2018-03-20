@@ -1,10 +1,28 @@
 {
     "MAIN":{
-        "TITLE": "Stupid App"
+        "TITLE": "Stupid App",
+        "UPDATE": "UPDATE",
+        "REGISTER": "REGISTER"
     },
     "SIDEBAR": {
         "DASHBOARD": "Dashboard",
         "IMMUNIZATION": "Immunization",
-        "USER_PROFILE": "User Profile"
+        "USER_PROFILE": "User Profile",
+        "REGISTRATION": "Registration"
+    },
+    "BCG1":{
+        "TITLE": "BCG 1",
+        "TIMING": "At Birth",
+        "NOTES": "Administer the vaccine to the newborn before discharging"
+    },
+    "OPV1":{
+        "TITLE": "OPV 1",
+        "TIMING": "At Birth",
+        "NOTES": "Administer the vaccine to the newborn before discharging"
+    },
+    "HEPB1":{
+        "TITLE": "HEP B1",
+        "TIMING": "At Birth",
+        "NOTES": "Administer the vaccine to the newborn before discharging"
     }
 }

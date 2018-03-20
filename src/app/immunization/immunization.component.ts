@@ -7,23 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImmunizationComponent implements OnInit {
   public now: Date = new Date();
-  childName = "Rochelle D'Sa"
+  childName = "Lorem Ipsum"
   aadharNumber = "1111 2233 4444"
   vaccinesList = [
     {
-      name:"BCG1",
-      timing:"At Birth",
-      notes:"Administer the vaccine to the newborn before discharging"
+      name:"BCG1.TITLE",
+      timing:"BCG1.TIMING",
+      notes:"BCG1.NOTES"
     },
     {
-      name:"OPV 0",
-      timing:"At Birth",
-      notes:"Administer the vaccine to the newborn before discharging"
+      name:"OPV1.TITLE",
+      timing:"OPV1.TIMING",
+      notes:"OPV1.NOTES"
     },
     {
-      name:"HEP B1",
-      timing:"At Birth",
-      notes:"Administer the vaccine to the newborn before discharging"
+      name:"HEPB1.TITLE",
+      timing:"HEPB1.TIMING",
+      notes:"HEPB1.NOTES"
     }
   ]
   constructor() { }
