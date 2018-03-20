@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
 
   register() {
     console.log(this.current)
-    this.http.post("http://127.0.0.1:8000/api/mothers/", this.current).subscribe(
+    this.http.post("http://localhost:8000/api/mothers/", this.current).subscribe(
       response => {
         console.log(response);
       },
