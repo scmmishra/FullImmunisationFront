@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -22,7 +21,9 @@ import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { RegistrationComponent } from './registration/registration.component';
-import { DatepickerModule } from 'angular2-material-datepicker'
+import { DatepickerModule } from 'angular2-material-datepicker';
+import { CollapsibleModule } from 'angular2-collapsible';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -50,9 +51,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     DatepickerModule,
+    CollapsibleModule, //for the collapsible divs
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
