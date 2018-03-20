@@ -1,7 +1,8 @@
 {
     "MAIN":{
         "TITLE": "Stupid App",
-        "UPDATE": "UPDATE"
+        "UPDATE": "UPDATE",
+        "REGISTER": "REGISTER"
     },
     "SIDEBAR": {
         "DASHBOARD": "Dashboard",
