@@ -1,24 +1,7 @@
 # Multilingual App for Tracking Immunization
 ## Built Using Angular 4 for Smart India Hackathon
 
-## Instructions
-```
-git clone https://github.com/scmmishra/FullImmunisationFront
-cd FullImmunisationFront
-npm install
-ng serve
-```
-
-
-
-# Resources from creative-tim.com
-
-## Links:
-
-+ [Live Preview](https://www.creative-tim.com/product/material-dashboard-angular2)
-+ [Material Kit - For Front End Development](http://www.creative-tim.com/product/material-kit?ref=github-md-angular)
-
-## Terminal Commands
+## Terminal Commands for Installation
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0 and angular 4.x.
 
