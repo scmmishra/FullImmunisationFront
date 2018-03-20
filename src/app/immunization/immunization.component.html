@@ -13,22 +13,30 @@
               <div class="col-md-3">
                   <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
                       <label class="control-label">ID</label>
-                      <input type="text" class="form-control">
+                      <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
                       <label class="control-label">First Name</label>
-                      <input type="text" class="form-control">
+                      <input #searchBoxFName type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
                       <label class="control-label">Last Name</label>
-                      <input type="text" class="form-control">
+                      <input #searchBoxLName type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
                   </div>
               </div>
             </div> <!-- Here goes the form -->
+            <div id="search-component">
+			  <h4>Immunization Search</h4>			  
+			  <ul class="search-result">
+			    <li *ngFor="let imm of immList$ | async" >
+			        {{imm}}
+			    </li>
+			  </ul>
+			</div>
           </div>
         </div>
         <div class="card-content">

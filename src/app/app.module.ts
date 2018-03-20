@@ -24,7 +24,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { DatepickerModule } from 'angular2-material-datepicker';
 import { CollapsibleModule } from 'angular2-collapsible';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { SearchImmunizeService } from './search-immunize.service';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
@@ -63,7 +63,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [ SearchImmunizeService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
