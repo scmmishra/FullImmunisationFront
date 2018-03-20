@@ -1,3 +1,7 @@
+input {
+    border:Opx;
+}
+
 my-app .main-panel .main-content .card{
     animation-duration: 750ms;
     opacity: 0;
