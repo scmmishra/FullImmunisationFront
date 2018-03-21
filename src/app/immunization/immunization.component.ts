@@ -26,8 +26,14 @@ export class ImmunizationComponent implements OnInit {
   id: string = "";
   first_name: string = "";
   last_name: string = "";
+  makeVisible: boolean = false; //alter the visiblity of search result division
 
   search1(id: string, first_name: string, last_name: string): void {  //pass whichever variable chanfes
+  	if (id == "" && first_name == "" && last_name == ""){
+  		this.makeVisible = false; //set false if none of the fields is filled
+  	} else {
+  		this.makeVisible = true; //else set true
+  	}
     if (this.id != id){
       this.id = id;
       this.searchTerms1.next(id);
@@ -41,6 +47,29 @@ export class ImmunizationComponent implements OnInit {
       
   }
 
+  /*Needs work
+  selectedValue = []
+
+  change(e, type){
+    console.log(e.checked);
+    console.log(type);
+    if(e.checked){
+      this.selectedValue.push(type);
+    }
+    else{
+     let updateItem = this.selectedValue.find(this.findIndexToUpdate, type.maintenancetype));
+
+     let index = this.selectedValue.indexOf(updateItem);
+
+     this.selectedValue.splice(index, 1);
+    }
+    
+  }
+
+  findIndexToUpdate(type) { 
+        return type.maintenancetype === this;
+  }
+  */
   ngOnInit(){
     this.immList$ = this.searchTerms1.pipe(debounceTime(300), switchMap((term: string) => this.immServe.searchImmunization(this.id, this.first_name, this.last_name)));
   }

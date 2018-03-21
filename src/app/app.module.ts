@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { MatCheckboxModule } from '@angular/material';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserAnimationsModule,
     HttpClientModule,
     DatepickerModule,
+    MatCheckboxModule,
     CollapsibleModule, //for the collapsible divs
     TranslateModule.forRoot({
       loader: {

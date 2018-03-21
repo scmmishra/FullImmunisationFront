@@ -15,6 +15,6 @@ export class SearchImmunizeService {
 	    return of([]);
 	  }
 	  return this.http.get<Immunize[]>(`api/immunize/?name=${term}`);*/
-	  return of([id, first_name, last_name]);
-		}
+	  return of([{id: "11", name: 'IceDust', pending: ['A', 'B']}, {id: "12", name: 'Batman'}]); //{id: "11", name: 'Mr. Nice'}, {id: "11", name: 'Mr. Nice'}
+	}
 }
