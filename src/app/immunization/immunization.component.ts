@@ -21,7 +21,9 @@ export class ImmunizationComponent implements OnInit {
   private searchTerms1 = new Subject<string>();
   private searchTerms2 = new Subject<string>();
 
-  constructor(private immServe: SearchImmunizeService) { }
+  public items: any[][];
+  constructor(private immServe: SearchImmunizeService) { 
+  }
 
   id: string = "";
   first_name: string = "";
@@ -47,30 +49,46 @@ export class ImmunizationComponent implements OnInit {
       
   }
 
-  /*Needs work
-  selectedValue = []
 
-  change(e, type){
-    console.log(e.checked);
-    console.log(type);
-    if(e.checked){
-      this.selectedValue.push(type);
+  Submit(id){
+    let index = this.selectedIds.indexOf(id);
+    if(index == -1){                                   //something's probably wrong with the user
+      console.log("I miss Python...");
     }
     else{
-     let updateItem = this.selectedValue.find(this.findIndexToUpdate, type.maintenancetype));
-
-     let index = this.selectedValue.indexOf(updateItem);
-
-     this.selectedValue.splice(index, 1);
+      console.log({id: id, vaccinesRem: this.selectedValues[index].toString()});
     }
-    
+  }
+  
+  selectedValues = [];
+  selectedIds = [];
+
+  change(id, vacc){
+    console.log(this.selectedValues.length);
+
+    /*Managing Ids*/
+    if(this.selectedIds.indexOf(id) == -1){             //selection of new id
+      this.selectedIds.push(id);
+      this.selectedValues.push([vacc]);
+    } else {                                            //existing Id
+      
+      let idIndex = this.selectedIds.indexOf(id);
+      let index = this.selectedValues[idIndex].indexOf(vacc);
+      
+      if(index > -1){
+        this.selectedValues[idIndex].splice(index, 1);  //if found again in list, delete because it means checkbox has been unselected
+      } else {
+        this.selectedValues[idIndex].push(vacc);        //else add it to the list
+        console.log(this.selectedValues.length);
+      }
+
+    }
+    console.log(this.selectedValues[this.selectedIds.indexOf(id)]);    
   }
 
-  findIndexToUpdate(type) { 
-        return type.maintenancetype === this;
-  }
-  */
+  
   ngOnInit(){
     this.immList$ = this.searchTerms1.pipe(debounceTime(300), switchMap((term: string) => this.immServe.searchImmunization(this.id, this.first_name, this.last_name)));
   }
+  
 }

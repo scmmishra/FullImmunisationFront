@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="card-content">
-          <!-- <p> Selected value: {{selectedValue | json}} </p> Needs work--> 
+          <p> Selected value: {{selectedValues | json}} </p> 
         	<div *ngIf = "makeVisible">
 	            <h4 class="title">Results</h4>
 	            <collapsible-list [type]="'accordion'">
@@ -45,12 +45,15 @@
 	                  <!--<ul>
                       <li *ngFor="let vacc of imm.pending"> {{vacc}} </li>
                     </ul>-->
-                    <span *ngFor="let vacc of imm.pending">
-                        
-                        <input type="checkbox" name="{{vacc}}" value="{{vacc}}"/><!-- (change)="change($event, x)" --> <!-- Needs work -->
-                        {{vacc}}
+                    <form>
+	                    <span *ngFor="let vacc of imm.pending">
+	                        
+	                        <input type="checkbox" name="{{vacc}}" value="{{vacc}}" (change)="change(imm.id, vacc)"/><!-- (change)="change($event, x)" --> <!-- Needs work -->
+	                        {{vacc}}
 
-                    </span>
+	                    </span>
+	                    <button (click) = Submit(imm.id)>Submit</button>
+                    </form>
 	                </collapsible-body>
 	              </collapsible-list-item>
 
