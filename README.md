@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Angular Front End For Full Immunization Coverage
 > Original Template: https://www.creative-tim.com/product/material-dashboard-angular2
 
@@ -133,3 +134,6 @@ md-free-angular-cli
 └── typings
 
 ```
+=======
+# IMMNUNISATION-CAMPAIGN
+>>>>>>> 52e467387694c833fb1cbbec1788580b7b4e2d05
