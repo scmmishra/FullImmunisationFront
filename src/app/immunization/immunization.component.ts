@@ -57,6 +57,8 @@ export class ImmunizationComponent implements OnInit {
     }
     else{
       console.log({id: id, vaccinesRem: this.selectedValues[index].toString()});
+      //function to clear everything
+      
     }
   }
   
