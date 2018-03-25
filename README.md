@@ -1,5 +1,11 @@
+<<<<<<< 0f7f5fdffbe60dabc58335a5cf5f02df8e7b39eb
 # Multilingual App for Tracking Immunization
 ## Built Using Angular 4 for Smart India Hackathon
+=======
+<<<<<<< HEAD
+# Angular Front End For Full Immunization Coverage
+> Original Template: https://www.creative-tim.com/product/material-dashboard-angular2
+>>>>>>> CAMPAIGN MODULE WORKS
 
 ## Terminal Commands for Installation
 
@@ -123,3 +129,6 @@ FullImmunizationFront
 
 
 ```
+=======
+# IMMNUNISATION-CAMPAIGN
+>>>>>>> 52e467387694c833fb1cbbec1788580b7b4e2d05

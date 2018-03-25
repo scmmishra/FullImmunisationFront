@@ -23,9 +23,14 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { RegistrationComponent } from './registration/registration.component';
 import { DatepickerModule } from 'angular2-material-datepicker';
+<<<<<<< 0f7f5fdffbe60dabc58335a5cf5f02df8e7b39eb
 import { CollapsibleModule } from 'angular2-collapsible';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchImmunizeService } from './search-immunize.service';
+=======
+import { CampaignComponent } from './campaign/campaign.component'
+
+>>>>>>> CAMPAIGN MODULE WORKS
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
@@ -44,6 +49,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     UpgradeComponent,
     ImmunizationComponent,
     RegistrationComponent,
+    CampaignComponent,
   ],
   imports: [
     BrowserModule,

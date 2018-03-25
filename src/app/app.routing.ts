@@ -13,6 +13,7 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { CampaignComponent  } from './campaign/campaign.component';
 
 const routes: Routes =[
     { path: 'dashboard',      component: DashboardComponent },
@@ -25,6 +26,7 @@ const routes: Routes =[
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'campaign',        component: CampaignComponent },
     { path: '',               redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
