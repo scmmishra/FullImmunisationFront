@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { MatCheckboxModule } from '@angular/material';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -22,8 +22,10 @@ import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { RegistrationComponent } from './registration/registration.component';
-import { DatepickerModule } from 'angular2-material-datepicker'
-
+import { DatepickerModule } from 'angular2-material-datepicker';
+import { CollapsibleModule } from 'angular2-collapsible';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchImmunizeService } from './search-immunize.service';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
@@ -50,9 +52,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     DatepickerModule,
+    MatCheckboxModule,
+    CollapsibleModule, //for the collapsible divs
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -61,7 +65,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [ SearchImmunizeService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
