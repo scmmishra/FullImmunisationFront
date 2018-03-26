@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MatCheckboxModule } from '@angular/material';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CollapsibleModule } from 'angular2-collapsible'; 
+import { SearchImmunizeService } from './search-immunize.service';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { RegistrationComponent } from './registration/registration.component';
 import { DatepickerModule } from 'angular2-material-datepicker';
+<<<<<<< ed7c9715461ff2238482e2d0fef2f540d2a4b593
 <<<<<<< 601f41bc104bfeed6902dc358f68e637fd60a44c
 <<<<<<< 0f7f5fdffbe60dabc58335a5cf5f02df8e7b39eb
 =======
@@ -32,9 +35,11 @@ import { CollapsibleModule } from 'angular2-collapsible';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchImmunizeService } from './search-immunize.service';
 =======
+=======
+>>>>>>> CAMPAIGN WORKS!!!
 import { CampaignComponent } from './campaign/campaign.component'
 
->>>>>>> CAMPAIGN MODULE WORKS
+
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
@@ -66,7 +71,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     DatepickerModule,
     MatCheckboxModule,
-    CollapsibleModule, //for the collapsible divs
+    CollapsibleModule, 
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
