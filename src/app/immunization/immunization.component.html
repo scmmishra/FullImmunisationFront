@@ -1,63 +1,67 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-      <div>
-          <form role="search">
-              <div class="col-md-4 form-group form-black is-empty">
-                  <input type="text" class="form-control" placeholder="Search">
-                  <span class="material-input"></span>
-              </div>
-              <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i><div class="ripple-container"></div>
-              </button>
-          </form>
-      </div>
-    </div>
-    <div class="row">
       <div class="card">
         <div class="card-header" data-background-color="red">
-          <h4 class="title">{{ childName }}</h4>
-          <p class="category">Cute little child</p>
-        </div>
-        <div class="card-content">
-          <form>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group form-black label-floating is-empty">
-                  <h4 class="control-label">{{ now | date }}</h4>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group form-black label-floating is-empty">
-                  <h4 class="control-label">{{ childName }}</h4>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group form-black label-floating is-empty">
-                  <h4 class="control-label">{{ aadharNumber }}</h4>
-                </div>
+          <div class="card-content">
+            <div class="row" style="margin: 0% 0% 1% 0%; padding: 0px">
+              <div class="col-md-5" style="margin: 0; padding: 0">
+                <h3 style="margin: 0; padding: 0">Search</h3>
               </div>
             </div>
-            <h4 class="title">Vaccines Pending</h4>
-            <table class="table">
-              <tbody>
-                  <tr *ngFor="let vaccine of vaccinesList">
-                      <td>
-                          <div class="checkbox">
-                              <label>
-                                  <input type="checkbox" name="optionsCheckboxes">
-                              </label>
-                          </div>
-                      </td>
-                      <td>{{ vaccine.name | translate }}</td>
-                      <td>{{ vaccine.timing | translate }}</td>
-                      <td>{{ vaccine.notes | translate }}</td>
-                  </tr>
-              </tbody>
-          </table>
-            <button type="submit" class="btn btn-danger pull-right">{{ 'MAIN.UPDATE' | translate }}</button>
-            <div class="clearfix"></div>
-          </form>
+            <div class="row"> <!-- Here goes the form -->
+              <div class="col-md-3">
+                  <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
+                      <label class="control-label">ID</label>
+                      <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
+                      <label class="control-label">First Name</label>
+                      <input #searchBoxFName type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
+                      <label class="control-label">Last Name</label>
+                      <input #searchBoxLName type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
+                  </div>
+              </div>
+            </div> <!-- Here goes the form -->
+          </div>
+        </div>
+        <div class="card-content">
+          <p> Selected value: {{selectedValues | json}} </p> 
+        	<div *ngIf = "makeVisible">
+	            <h4 class="title">Results</h4>
+	            <collapsible-list [type]="'accordion'">
+	  
+	              <collapsible-list-item *ngFor="let imm of immList$ | async">
+	                <collapsible-header class="waves-effect">
+	                  {{imm.name}}
+	                </collapsible-header>
+	                <collapsible-body [expanded]="false">
+	                  <!--<ul>
+                      <li *ngFor="let vacc of imm.pending"> {{vacc}} </li>
+                    </ul>-->
+                    <form>
+	                    <span *ngFor="let vacc of imm.pending">
+	                        
+	                        <input type="checkbox" name="{{vacc}}" value="{{vacc}}" (change)="change(imm.id, vacc)"/><!-- (change)="change($event, x)" --> <!-- Needs work -->
+	                        {{vacc}}
+
+	                    </span>
+	                    <button (click) = Submit(imm.id)>Submit</button>
+                    </form>
+	                </collapsible-body>
+	              </collapsible-list-item>
+
+              </collapsible-list>
+        	</div>
+        
+
+          <div class="clearfix"></div>
         </div>
       </div>
     </div>

@@ -1,34 +1,94 @@
 import { Component, OnInit } from '@angular/core';
 
+//for return from service
+import { Observable } from 'rxjs/Observable';
+import { Subject }    from 'rxjs/Subject';
+import { of }         from 'rxjs/observable/of';
+
+import {
+   debounceTime, distinctUntilChanged, switchMap
+ } from 'rxjs/operators';
+
+import { SearchImmunizeService } from '../search-immunize.service';
+
 @Component({
   selector: 'app-immunization',
   templateUrl: './immunization.component.html',
   styleUrls: ['./immunization.component.scss']
 })
 export class ImmunizationComponent implements OnInit {
-  public now: Date = new Date();
-  childName = "Lorem Ipsum"
-  aadharNumber = "1111 2233 4444"
-  vaccinesList = [
-    {
-      name:"BCG1.TITLE",
-      timing:"BCG1.TIMING",
-      notes:"BCG1.NOTES"
-    },
-    {
-      name:"OPV1.TITLE",
-      timing:"OPV1.TIMING",
-      notes:"OPV1.NOTES"
-    },
-    {
-      name:"HEPB1.TITLE",
-      timing:"HEPB1.TIMING",
-      notes:"HEPB1.NOTES"
-    }
-  ]
-  constructor() { }
+  immList$: Observable<any[]>;
+  private searchTerms1 = new Subject<string>();
+  private searchTerms2 = new Subject<string>();
 
-  ngOnInit() {
+  public items: any[][];
+  constructor(private immServe: SearchImmunizeService) { 
   }
 
+  id: string = "";
+  first_name: string = "";
+  last_name: string = "";
+  makeVisible: boolean = false; //alter the visiblity of search result division
+
+  search1(id: string, first_name: string, last_name: string): void {  //pass whichever variable chanfes
+  	if (id == "" && first_name == "" && last_name == ""){
+  		this.makeVisible = false; //set false if none of the fields is filled
+  	} else {
+  		this.makeVisible = true; //else set true
+  	}
+    if (this.id != id){
+      this.id = id;
+      this.searchTerms1.next(id);
+    } else if (this.first_name != first_name){
+      this.first_name = first_name;
+      this.searchTerms1.next(first_name);
+    } else {
+      this.last_name = last_name;
+      this.searchTerms1.next(last_name);
+    }
+      
+  }
+
+
+  Submit(id){
+    let index = this.selectedIds.indexOf(id);
+    if(index == -1){                                   //something's probably wrong with the user
+      console.log("I miss Python...");
+    }
+    else{
+      console.log({id: id, vaccinesRem: this.selectedValues[index].toString()});
+    }
+  }
+  
+  selectedValues = [];
+  selectedIds = [];
+
+  change(id, vacc){
+    console.log(this.selectedValues.length);
+
+    /*Managing Ids*/
+    if(this.selectedIds.indexOf(id) == -1){             //selection of new id
+      this.selectedIds.push(id);
+      this.selectedValues.push([vacc]);
+    } else {                                            //existing Id
+      
+      let idIndex = this.selectedIds.indexOf(id);
+      let index = this.selectedValues[idIndex].indexOf(vacc);
+      
+      if(index > -1){
+        this.selectedValues[idIndex].splice(index, 1);  //if found again in list, delete because it means checkbox has been unselected
+      } else {
+        this.selectedValues[idIndex].push(vacc);        //else add it to the list
+        console.log(this.selectedValues.length);
+      }
+
+    }
+    console.log(this.selectedValues[this.selectedIds.indexOf(id)]);    
+  }
+
+  
+  ngOnInit(){
+    this.immList$ = this.searchTerms1.pipe(debounceTime(300), switchMap((term: string) => this.immServe.searchImmunization(this.id, this.first_name, this.last_name)));
+  }
+  
 }
