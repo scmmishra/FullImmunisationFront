@@ -3,13 +3,16 @@
         "TITLE": "Stupid App",
         "UPDATE": "UPDATE",
         "REGISTER": "REGISTER",
-        "MOTHER PROFILE": "Mother Profile"
+        "MOTHER PROFILE": "Mother Profile",
+        "EDIT PROFILE": "EDIT PROFILE",
+        "ADD CHILD":"ADD CHILD"
     },
     "SIDEBAR": {
         "DASHBOARD": "Dashboard",
         "IMMUNIZATION": "Immunization",
         "USER_PROFILE": "User Profile",
-        "REGISTRATION": "Registration"
+        "REGISTRATION": "Registration",
+        "CAMPAIGN": "Campaign"
     },
     "BCG1":{
         "TITLE": "BCG 1",

@@ -1,94 +1,75 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="card">
+            <div *ngIf="mother.pk" class="card">
                 <div class="card-header" data-background-color="red">
                     <h4 class="title">{{ "MAIN.MOTHER PROFILE" | translate }}</h4>
-                    <p class="category">Last updated: {{ first_name }}</p>
+                    <p class="category">Last updated: {{ mother.registration_date }}</p>
                 </div>
                 <div class="card-content">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Company (disabled)</label>
-                                    <input type="text" class="form-control" disabled>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Username</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Email address</label>
-                                    <input type="email" class="form-control">
-                                </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Name</p>
+                                <h4>{{ mother.first_name }} {{ mother.last_name }}</h4>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Fist Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Last Name</label>
-                                    <input type="text" class="form-control">
-                                </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Date of Birth</p>
+                                <h4>{{ mother.date_of_birth }}</h4>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Adress</label>
-                                    <input type="text" class="form-control">
-                                </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Aadhar Number</p>
+                                <h4>{{ mother.aadhar }}</h4>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">City</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Country</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group form-black label-floating is-empty">
-                                    <label class="control-label">Postal Code</label>
-                                    <input type="text" class="form-control">
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Primary Mobile Number</p>
+                                <h4>{{ mother.mobile1 }}</h4>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>About Me</label>
-                                    <div class="form-group form-black label-floating is-empty">
-                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                        <textarea class="form-control" rows="5"></textarea>
-                                    </div>
-                                </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Secondary Mobile Number</p>
+                                <h4>{{ mother.mobile2 }}</h4>
                             </div>
                         </div>
-
-                        <button type="submit" class="btn btn-danger pull-right">Update Profile</button>
-                        <div class="clearfix"></div>
-                    </form>
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Blood Group</p>
+                                <h4>{{ mother.blood_group }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Highest Qualification</p>
+                                <h4>{{ mother.education }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Economic Status</p>
+                                <h4>{{ mother.economic_status }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">HIV Status</p>
+                                <h4>HIV {{ mother.hiv_status }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger pull-left">{{ 'MAIN.EDIT PROFILE' | translate }}</button>
+                    <button (click)="addChild(mother.pk)" type="submit" class="btn btn-danger pull-left">{{ 'MAIN.ADD CHILD' | translate }}</button>
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>

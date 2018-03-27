@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-user-profile',
@@ -7,9 +7,21 @@ import {ActivatedRoute} from '@angular/router';
     styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
-    public mother: JSON;
+    public mother: object;
 
-    constructor(private route: ActivatedRoute) {}
+    constructor(private route: ActivatedRoute, private router:Router) {
+        this.route.params.subscribe(
+            params => {
+                console.log(params);
+                console.log(params.first_name);
+                this.mother = params;
+            }
+    );
+    }
 
     ngOnInit() {}
+
+    addChild(pk){
+        this.router.navigate(["/child-registration", {mother_id: pk}]);
+    }
 }

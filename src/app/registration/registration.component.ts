@@ -31,8 +31,11 @@ export class RegistrationComponent implements OnInit {
             .subscribe(
                 response => {
                     var result = response;
-                    console.log(result.json().data.fields)
-                    this.router.navigate(["/user-profile", result.json().data.fields]);
+                    var motherData = result.json().data.fields;
+                    motherData['pk'] = result.json().data.pk;
+                    console.log(result.json().data);
+                    console.log("Redirecting to Profile");
+                    this.router.navigate(["/user-profile", motherData]);
                 },
                 err => {
                     console.log('Error occured');

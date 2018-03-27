@@ -32,11 +32,11 @@
           </div>
         </div>
         <div class="card-content">
-          <p> Selected value: {{selectedValues | json}} </p> 
+          <p> Selected value: {{selectedValues | json}} </p>
         	<div *ngIf = "makeVisible">
 	            <h4 class="title">Results</h4>
 	            <collapsible-list [type]="'accordion'">
-	  
+
 	              <collapsible-list-item *ngFor="let imm of immList$ | async">
 	                <collapsible-header class="waves-effect">
 	                  {{imm.name}}
@@ -47,7 +47,7 @@
                     </ul>-->
                     <form>
 	                    <span *ngFor="let vacc of imm.pending">
-	                        
+
 	                        <input type="checkbox" name="{{vacc}}" value="{{vacc}}" (change)="change(imm.id, vacc)"/><!-- (change)="change($event, x)" --> <!-- Needs work -->
 	                        {{vacc}}
 
@@ -59,7 +59,7 @@
 
               </collapsible-list>
         	</div>
-        
+
 
           <div class="clearfix"></div>
         </div>

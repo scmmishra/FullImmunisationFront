@@ -13,7 +13,7 @@ export const ROUTES: RouteInfo[] = [
     { path: 'registration', title: 'SIDEBAR.REGISTRATION',  icon: 'edit', class: '' },
     { path: 'immunization', title: 'SIDEBAR.IMMUNIZATION',  icon: 'child_care', class: '' },
     { path: 'user-profile', title: 'SIDEBAR.USER_PROFILE',  icon:'person', class: '' },
-    { path: 'campaign' ,  title: 'Campaign' , icon:'campaign' , class: '' }
+    { path: 'campaign' ,  title: 'SIDEBAR.CAMPAIGN' , icon:'event' , class: '' }
 ];
 
 @Component({
