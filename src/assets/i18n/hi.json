@@ -2,13 +2,15 @@
     "MAIN":{
         "TITLE": "बेवकूफ ऐप",
         "UPDATE": "प्रविष्टि दर्ज करें",
-        "REGISTER": "रजिस्टर"
+        "REGISTER": "रजिस्टर",
+        "MOTHER PROFILE": "माँ की प्रोफाइल"
     },
     "SIDEBAR": {
         "DASHBOARD": "डैशबोर्ड",
         "IMMUNIZATION": "प्रतिरक्षा",
         "USER_PROFILE": "उपयोगकर्ता प्रोफ़ाइल",
-        "REGISTRATION": "Registration"
+        "REGISTRATION": "पंजीकरण"
+
     },
     "BCG1":{
         "TITLE": "BCG 1",

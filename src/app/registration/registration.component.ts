@@ -31,7 +31,7 @@ export class RegistrationComponent implements OnInit {
             .subscribe(
                 response => {
                     var result = response;
-                    console.log(result)
+                    console.log(result.json().data.fields)
                     this.router.navigate(["/user-profile", result.json().data.fields]);
                 },
                 err => {
