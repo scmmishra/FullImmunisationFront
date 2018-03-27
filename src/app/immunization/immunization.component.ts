@@ -31,11 +31,7 @@ export class ImmunizationComponent implements OnInit {
   makeVisible: boolean = false; //alter the visiblity of search result division
 
   search1(id: string, first_name: string, last_name: string): void {  //pass whichever variable chanfes
-  	if (id == "" && first_name == "" && last_name == ""){
-  		this.makeVisible = false; //set false if none of the fields is filled
-  	} else {
-  		this.makeVisible = true; //else set true
-  	}
+  	
     if (this.id != id){
       this.id = id;
       this.searchTerms1.next(id);
@@ -45,6 +41,11 @@ export class ImmunizationComponent implements OnInit {
     } else {
       this.last_name = last_name;
       this.searchTerms1.next(last_name);
+    }
+    if (id == "" && first_name == "" && last_name == ""){
+      this.makeVisible = false; //set false if none of the fields is filled
+    } else {
+      this.makeVisible = true; //else set true
     }
       
   }
@@ -57,6 +58,7 @@ export class ImmunizationComponent implements OnInit {
     }
     else{
       console.log({id: id, vaccinesRem: this.selectedValues[index].toString()});
+      //function to clear everything
     }
   }
   
