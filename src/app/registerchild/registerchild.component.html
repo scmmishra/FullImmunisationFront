@@ -1,0 +1,59 @@
+<form (ngSubmit)="registerChild()">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">First Name</label>
+                <input type="text" class="form-control" id="first_name" [(ngModel)]="modelChild.first_name" name="first_name" required>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Gender</label>
+                <select class="form-control" id="gender" [(ngModel)]="modelChild.gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Blood Group</label>
+                <select class="form-control" id="blood_group" [(ngModel)]="modelChild.blood_group" name="blood_group" required>
+                        <option value="A+">A+</option>
+                        <option value="B+">B+</option>
+                        <option value="AB+">AB+</option>
+                        <option value="O+">O+</option>
+                        <option value="A-">A-</option>
+                        <option value="B-">B-</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O-">O-</option>
+                    </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Is HIV Positive?</label>
+                    <select class="form-control" id="hiv_status" [(ngModel)]="modelChild.hiv_status" name="hiv_status" required>
+                        <option value="Positive">HIV Positive</option>
+                        <option value="Negative">HIV Negative</option>
+                    </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group form-black label is-empty">
+                <label class="control-label">Date of Birth</label>
+                <input type="date" class="form-control" id="date_of_birth" [(ngModel)]="modelChild.date_of_birth" name="date_of_birth" required>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger pull-right">{{ 'MAIN.REGISTER' | translate }}</button>
+    <div class="clearfix"></div>
+</form>
+<div>
+    <h2>Model:</h2>
+    {{ currentChild }}
+</div>

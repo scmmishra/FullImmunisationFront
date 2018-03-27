@@ -9,6 +9,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CampaignComponent  } from './campaign/campaign.component';
+import { RegistermotherComponent } from './registermother/registermother.component';
+import { RegisterchildComponent } from './registerchild/registerchild.component';
 
 const routes: Routes =[
     { path: 'dashboard',      component: DashboardComponent },

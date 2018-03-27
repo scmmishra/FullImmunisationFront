@@ -20,7 +20,9 @@ import { DatepickerModule } from 'angular2-material-datepicker';
 import { CollapsibleModule } from 'angular2-collapsible';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchImmunizeService } from './search-immunize.service';
-import { CampaignComponent } from './campaign/campaign.component'
+import { CampaignComponent } from './campaign/campaign.component';
+import { RegisterchildComponent } from './registerchild/registerchild.component';
+import { RegistermotherComponent } from './registermother/registermother.component'
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -36,6 +38,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ImmunizationComponent,
     RegistrationComponent,
     CampaignComponent,
+    RegisterchildComponent,
+    RegistermotherComponent,
   ],
   imports: [
     BrowserModule,
