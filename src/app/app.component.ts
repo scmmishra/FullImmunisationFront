@@ -5,10 +5,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
-<<<<<<< HEAD
 import {TranslateService} from '@ngx-translate/core';
-=======
->>>>>>> 30bdbec02cb12712cdc8c7b4ef7a86e4dd7d4300
 
 declare const $: any;
 
@@ -24,7 +21,6 @@ export class AppComponent implements OnInit {
 
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-<<<<<<< HEAD
     constructor( public location: Location, private router: Router, private translate: TranslateService) {
         translate.addLangs(["en", "hi"]);
         translate.setDefaultLang('en');
@@ -32,9 +28,6 @@ export class AppComponent implements OnInit {
         let browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/en|hi/) ? browserLang : 'en');
     }
-=======
-    constructor( public location: Location, private router: Router) {}
->>>>>>> 30bdbec02cb12712cdc8c7b4ef7a86e4dd7d4300
 
     ngOnInit() {
         $.material.init();

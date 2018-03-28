@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-<<<<<<< HEAD
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
@@ -14,14 +13,11 @@ import { BrowserModule } from '@angular/platform-browser';
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
 }
-=======
->>>>>>> 30bdbec02cb12712cdc8c7b4ef7a86e4dd7d4300
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-<<<<<<< HEAD
     BrowserModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -31,8 +27,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     })
-=======
->>>>>>> 30bdbec02cb12712cdc8c7b4ef7a86e4dd7d4300
   ],
   declarations: [
     FooterComponent,
