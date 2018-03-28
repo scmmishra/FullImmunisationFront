@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-danger pull-left">{{ 'MAIN.EDIT PROFILE' | translate }}</button>
+                    <button (click)="editMother(mother)" type="submit" class="btn btn-danger pull-left">{{ 'MAIN.EDIT PROFILE' | translate }}</button>
                     <button (click)="addChild(mother.pk)" type="submit" class="btn btn-danger pull-left">{{ 'MAIN.ADD CHILD' | translate }}</button>
                     <div class="clearfix"></div>
                 </div>

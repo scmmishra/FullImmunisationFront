@@ -1,0 +1,100 @@
+<form (ngSubmit)="registerMother()">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">First Name</label>
+                <input type="text" class="form-control" id="first_name" [(ngModel)]="modelMother.first_name" name="first_name" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Last Name</label>
+                <input type="text" class="form-control" id="last_name" [(ngModel)]="modelMother.last_name" name="last_name" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Aadhaar Card Number</label>
+                <input type="text" class="form-control" id="aadhar" [(ngModel)]="modelMother.aadhar" name="aadhar" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Primary Mobile Number</label>
+                <input type="text" class="form-control" id="mobile1" [(ngModel)]="modelMother.mobile1" name="mobile1" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Secondary Mobile Number</label>
+                <input type="text" class="form-control" id="mobile2" [(ngModel)]="modelMother.mobile2" name="mobile2" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Blood Group</label>
+                <select class="form-control" id="blood_group" [(ngModel)]="modelMother.blood_group" name="blood_group" required>
+                    <option value="A+">A+</option>
+                    <option value="B+">B+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="O+">O+</option>
+                    <option value="A-">A-</option>
+                    <option value="B-">B-</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O-">O-</option>
+                </select>
+                <!-- <input type="text" class="form-control" id="blood_group" [(ngModel)]="modelMother.blood_group" name="blood_group" required> -->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Education</label>
+                <select class="form-control" id="education" [(ngModel)]="modelMother.education" name="education" required>
+                    <option value="Illiterate">Illiterate</option>
+                    <option value="Primary">Primary</option>
+                    <option value="Middle School">Middle School</option>
+                    <option value="High School">High School</option>
+                    <option value="Graduate">Graduate</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Economic Status</label>
+                <select class="form-control" id="economic_status" [(ngModel)]="modelMother.economic_status" name="economic_status" required>
+                    <option value="APL">Above Poverty Line</option>
+                    <option value="BPL">Below Poverty Line</option>
+                    <option value="NA">Information Not Available</option>
+                </select>
+                <!-- <input type="text" class="form-control" id="economic_status" [(ngModel)]="modelMother.economic_status" name="economic_status" required> -->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group form-black label-floating is-empty">
+                <label class="control-label">Is HIV Positive?</label>
+                <select class="form-control" id="hiv_status" [(ngModel)]="modelMother.hiv_status" name="hiv_status" required>
+                    <option value="Positive">HIV Positive</option>
+                    <option value="Negative">HIV Negative</option>
+                </select>
+                <!-- <input type="text" class="form-control" id="hiv_status" [(ngModel)]="modelMother.hiv_status" name="location" required> -->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group form-black is-empty">
+            <label class="control-label">Date of Birth</label>
+            <!-- <material-datepicker type="text" placeholder="Date of Birth" class="form-control" id="date_of_birth"></material-datepicker> -->
+            <input type="date" class="form-control" id="date_of_birth" [(ngModel)]="modelMother.date_of_birth" name="date_of_birth" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger pull-right">{{ 'MAIN.REGISTER' | translate }}</button>
+    <div class="clearfix"></div>
+</form>
+<div>
+    <h2>Model:</h2>
+    {{ currentMother }}
+</div>
