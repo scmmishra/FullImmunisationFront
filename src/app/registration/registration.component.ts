@@ -13,7 +13,7 @@ import {RegisterchildComponent} from '../registerchild/registerchild.component';
 })
 export class RegistrationComponent implements OnInit {
     public mother: object;
-    public child:object;
+    public mother_id: string;
     public currentModel: string;
     constructor(private route: ActivatedRoute, private http: Http, private router:Router) {
         this.route.params.subscribe(
@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
                 }
                 else if(params.model == "child")
                 {
-                    this.child = params;
+                    this.mother_id = params.mother_id;
                     this.currentModel = "child";
                 }
             }

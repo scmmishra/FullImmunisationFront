@@ -27,6 +27,6 @@ export class UserProfileComponent implements OnInit {
 
     editMother(mother){
         console.log(mother);
-        // this.router.navigate(["/registration"], mother)
+        this.router.navigate(["/registration"], mother)
     }
 }
