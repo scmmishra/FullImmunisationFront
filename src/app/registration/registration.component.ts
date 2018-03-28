@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Mother} from '../mother.model';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
-import { Router } from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {RegistermotherComponent} from '../registermother/registermother.component';
 import {RegisterchildComponent} from '../registerchild/registerchild.component';
 
@@ -12,7 +12,27 @@ import {RegisterchildComponent} from '../registerchild/registerchild.component';
     styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-    constructor(private http: Http, private router:Router) {}
+    public mother: object;
+    public child:object;
+    public currentModel: string;
+    constructor(private route: ActivatedRoute, private http: Http, private router:Router) {
+        this.route.params.subscribe(
+            params => {
+                if(params.model == "mother")
+                {
+                    this.mother = params;
+                    this.currentModel = "mother";
+                }
+                else if(params.model == "child")
+                {
+                    this.child = params;
+                    this.currentModel = "child";
+                }
+            }
+        );
+    }
+
+
 
     ngOnInit() {}
 }

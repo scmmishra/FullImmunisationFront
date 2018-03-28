@@ -1,6 +1,6 @@
 export class Child {
     constructor(
-        public mother: string,
+        public mother_id: string,
         public first_name: string,
         public date_of_birth: string,
         public gender: string,

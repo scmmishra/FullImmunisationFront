@@ -28,6 +28,7 @@ export class RegistermotherComponent implements OnInit {
                   var result = response;
                   var motherData = result.json().data.fields;
                   motherData['pk'] = result.json().data.pk;
+                  motherData['model'] = "mother";
                   console.log(result.json().data);
                   console.log("Redirecting to Profile");
                   this.router.navigate(["/user-profile", motherData]);

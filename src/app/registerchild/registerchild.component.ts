@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterchildComponent implements OnInit {
   public now: Date = new Date();
-  modelChild = new Child('','', '', '', '', '', this.now.toISOString().substring(0, 10));
+  modelChild = new Child('1','', '', '', '', '', this.now.toISOString().substring(0, 10));
 
   constructor(private http: Http, private router:Router) {}
 
@@ -20,5 +20,25 @@ export class RegisterchildComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  registerChild() {
+    // console.log(this.currentChild);
+    this.http
+        .post('http://localhost:8000/api/children/', this.currentChild)
+        .subscribe(
+            response => {
+                var result = response;
+                var childData = result.json().data.fields;
+                console.log(result.json().data.fields);
+                childData['pk'] = result.json().data.pk;
+                console.log(childData);
+                console.log("Child Registered");
+                // this.router.navigate(["/user-profile", childData]);
+            },
+            err => {
+                console.log('Error occured');
+            }
+        );
+}
 
 }
