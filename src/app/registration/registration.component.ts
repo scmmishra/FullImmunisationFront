@@ -1,29 +1,45 @@
 import {Component, OnInit} from '@angular/core';
-import { Mother } from '../mother.model';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
-
+import {Mother} from '../mother.model';
+import {EligibleCouple} from '../eligible-couple.model';
+import {Http, Response, RequestOptions, Headers} from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss'],
+    selector: 'app-registration',
+    templateUrl: './registration.component.html',
+    styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  model = new Mother('','', '','', '','','','','');;
-  constructor(private http: Http){}
+    public now: Date = new Date();
+    modelMother = new Mother('', '', '', '', '', '', this.now.toISOString().substring(0, 10), '', '', '', '');
+    modelCouple = new EligibleCouple('','','','','','','', this.now.toISOString().substring(0, 10),'','','','','');
+    constructor(private http: Http, private router:Router) {}
 
-  ngOnInit() {}
-  get current() { return JSON.stringify(this.model); }
+    ngOnInit() {}
+    get currentMother() {
+        return JSON.stringify(this.modelMother);
+    }
 
-  register() {
-    console.log(this.current)
-    this.http.post("http://localhost:8000/api/mothers/", this.current).subscribe(
-      response => {
-        console.log(response);
-      },
-      err => {
-        console.log("Error occured");
-      }
-    );
-  }
+    get currentCouple() {
+        return JSON.stringify(this.modelCouple);
+    }
+
+    registerMother() {
+        console.log(this.currentMother);
+        this.http
+            .post('http://localhost:8000/api/mothers/', this.currentMother)
+            .subscribe(
+                response => {
+                    var result = response;
+                    var motherData = result.json().data.fields;
+                    motherData['pk'] = result.json().data.pk;
+                    console.log(result.json().data);
+                    console.log("Redirecting to Profile");
+                    this.router.navigate(["/user-profile", motherData]);
+                },
+                err => {
+                    console.log('Error occured');
+                }
+            );
+    }
 }
