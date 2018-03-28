@@ -32,30 +32,31 @@
           </div>
         </div>
         <div class="card-content">
-          <p> Selected value: {{selectedValues | json}} </p>
-        	<div *ngIf = "makeVisible">
-	            <h4 class="title">Results</h4>
-	            <collapsible-list [type]="'accordion'">
-
-	              <collapsible-list-item *ngFor="let imm of immList$ | async">
-	                <collapsible-header class="waves-effect">
-	                  {{imm.name}}
-	                </collapsible-header>
-	                <collapsible-body [expanded]="false">
-	                  <!--<ul>
+          <p> Selected value: {{selectedValues | json}} </p> 
+          <div *ngIf = "makeVisible">
+              {{immList}}
+              <h4 class="title">Results</h4>
+              <collapsible-list [type]="'accordion'">
+    
+                <collapsible-list-item *ngFor="let imm of immList">
+                  <collapsible-header class="waves-effect">
+                    {{ imm.fields.first_name }}
+                  </collapsible-header>
+                  <collapsible-body [expanded]="false">
+                    <!--<ul>
                       <li *ngFor="let vacc of imm.pending"> {{vacc}} </li>
                     </ul>-->
                     <form>
-	                    <span *ngFor="let vacc of imm.pending">
+                      <span *ngFor="let vacc of imm.fields.pending">
+                          
+                          <input type="checkbox" name="{{vacc.fields.name}}" value="{{vacc.fields.name}}" (change)="change(imm.pk, vacc.pk)"/><!-- replace fields.name with vacc.pk -->
+                          {{vacc.fields.name}}
 
-	                        <input type="checkbox" name="{{vacc}}" value="{{vacc}}" (change)="change(imm.id, vacc)"/><!-- (change)="change($event, x)" --> <!-- Needs work -->
-	                        {{vacc}}
-
-	                    </span>
-	                    <button (click) = Submit(imm.id)>Submit</button>
+                      </span>
+                      <button (click) = Submit(imm.pk)>Submit</button>
                     </form>
-	                </collapsible-body>
-	              </collapsible-list-item>
+                  </collapsible-body>
+                </collapsible-list-item>
 
               </collapsible-list>
         	</div>
