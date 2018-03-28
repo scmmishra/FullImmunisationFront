@@ -23,7 +23,12 @@ export class UserProfileComponent implements OnInit {
     ngOnInit() {}
 
     addChild(pk){
-        this.router.navigate(["/child-registration", {mother_id: pk}]);
+        this.router.navigate(["/registration", {model: "child", mother_id: pk}]);
+    }
+
+    editMother(mother){
+        console.log(mother);
+        this.router.navigate(["/registration"], mother)
     }
 =======
 import { Component, OnInit } from '@angular/core';

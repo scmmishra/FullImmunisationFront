@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Mother} from '../mother.model';
-import {EligibleCouple} from '../eligible-couple.model';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
-import { Router } from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import {RegistermotherComponent} from '../registermother/registermother.component';
+import {RegisterchildComponent} from '../registerchild/registerchild.component';
+
 
 @Component({
     selector: 'app-registration',
@@ -10,36 +12,27 @@ import { Router } from '@angular/router';
     styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-    public now: Date = new Date();
-    modelMother = new Mother('', '', '', '', '', '', this.now.toISOString().substring(0, 10), '', '', '', '');
-    modelCouple = new EligibleCouple('','','','','','','', this.now.toISOString().substring(0, 10),'','','','','');
-    constructor(private http: Http, private router:Router) {}
+    public mother: object;
+    public mother_id: string;
+    public currentModel: string;
+    constructor(private route: ActivatedRoute, private http: Http, private router:Router) {
+        this.route.params.subscribe(
+            params => {
+                if(params.model == "mother")
+                {
+                    this.mother = params;
+                    this.currentModel = "mother";
+                }
+                else if(params.model == "child")
+                {
+                    this.mother_id = params.mother_id;
+                    this.currentModel = "child";
+                }
+            }
+        );
+    }
+
+
 
     ngOnInit() {}
-    get currentMother() {
-        return JSON.stringify(this.modelMother);
-    }
-
-    get currentCouple() {
-        return JSON.stringify(this.modelCouple);
-    }
-
-    registerMother() {
-        console.log(this.currentMother);
-        this.http
-            .post('http://localhost:8000/api/mothers/', this.currentMother)
-            .subscribe(
-                response => {
-                    var result = response;
-                    var motherData = result.json().data.fields;
-                    motherData['pk'] = result.json().data.pk;
-                    console.log(result.json().data);
-                    console.log("Redirecting to Profile");
-                    this.router.navigate(["/user-profile", motherData]);
-                },
-                err => {
-                    console.log('Error occured');
-                }
-            );
-    }
 }
