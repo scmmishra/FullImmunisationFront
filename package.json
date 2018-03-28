@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "^4.4.4",
     "@angular/cdk": "^2.0.0-beta.12",
     "@angular/common": "4.4.4",
@@ -29,6 +30,18 @@
     "ajv": "^6.3.0",
     "angular2-collapsible": "0.0.52",
     "angular2-material-datepicker": "^0.5.0",
+=======
+    "@angular/animations": "4.4.4",
+    "@angular/common": "4.4.4",
+    "@angular/compiler": "4.4.4",
+    "@angular/core": "4.4.4",
+    "@angular/forms": "4.4.4",
+    "@angular/http": "4.4.4",
+    "@angular/platform-browser": "4.4.4",
+    "@angular/platform-browser-dynamic": "4.4.4",
+    "@angular/platform-server": "4.4.4",
+    "@angular/router": "4.4.4",
+>>>>>>> 30bdbec02cb12712cdc8c7b4ef7a86e4dd7d4300
     "arrive": "2.4.1",
     "bootstrap": "3.3.7",
     "bootstrap-material-design": "0.5.10",
@@ -38,16 +51,26 @@
     "core-js": "2.4.1",
     "googleapis": "19.0.0",
     "jquery": "3.2.1",
+<<<<<<< HEAD
     "materialize-css": "^0.100.2",
     "moment": "^2.21.0",
     "perfect-scrollbar": "1.1.0",
     "primeng": "^2.0.3",
     "rxjs": "^5.5.2",
+=======
+    "moment": "^2.19.3",
+    "perfect-scrollbar": "1.1.0",
+    "rxjs": "5.4.2",
+>>>>>>> 30bdbec02cb12712cdc8c7b4ef7a86e4dd7d4300
     "web-animations-js": "^2.3.1",
     "zone.js": "0.8.4"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@angular/cli": "^1.7.3",
+=======
+    "@angular/cli": "1.4.2",
+>>>>>>> 30bdbec02cb12712cdc8c7b4ef7a86e4dd7d4300
     "@angular/compiler-cli": "4.4.4",
     "@types/bootstrap": "3.3.32",
     "@types/chartist": "0.9.34",
@@ -66,6 +89,10 @@
     "protractor": "5.1.0",
     "ts-node": "2.0.0",
     "tslint": "4.5.0",
+<<<<<<< HEAD
     "typescript": "^2.3.4"
+=======
+    "typescript": "2.4.2"
+>>>>>>> 30bdbec02cb12712cdc8c7b4ef7a86e4dd7d4300
   }
 }
