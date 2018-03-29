@@ -42,9 +42,10 @@ export class RegisterchildComponent implements OnInit {
                     var childData = result.json().data.fields;
                     console.log(result.json().data.fields);
                     childData['pk'] = result.json().data.pk;
+                    childData['model'] = "child";
                     console.log(childData);
                     console.log('Child Registered');
-                    // this.router.navigate(["/user-profile", childData]);
+                    this.router.navigate(["/user-profile", childData]);
                 },
                 err => {
                     console.log('Error occured');

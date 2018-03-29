@@ -5,7 +5,10 @@
         "REGISTER": "REGISTER",
         "MOTHER PROFILE": "Mother Profile",
         "EDIT PROFILE": "EDIT PROFILE",
-        "ADD CHILD":"ADD CHILD"
+        "ADD CHILD":"ADD CHILD",
+        "CHILD PROFILE":"CHILD PROFILE",
+        "SEARCH": "SEARCH",
+        "IMMUNIZE": "IMMUNIZE"
     },
     "SIDEBAR": {
         "DASHBOARD": "Dashboard",

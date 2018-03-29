@@ -8,13 +8,24 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
     public mother: object;
+    public child: object;
+    public model: string;
 
     constructor(private route: ActivatedRoute, private router:Router) {
         this.route.params.subscribe(
             params => {
-                console.log(params);
-                console.log(params.first_name);
-                this.mother = params;
+                if(params.model == "child")
+                {
+                    this.model = "child";
+                    this.child = params;
+                    console.log("HAHAHAHHA");
+                    console.log(this.child);
+                }
+                else if(params.model == "mother")
+                {
+                    this.model = "mother"
+                    this.mother = params;
+                }
             }
     );
     }
