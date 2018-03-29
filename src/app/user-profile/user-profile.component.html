@@ -1,7 +1,7 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div *ngIf="mother.pk" class="card">
+            <div *ngIf="model == 'mother'" class="card">
                 <div class="card-header" data-background-color="red">
                     <h4 class="title">{{ "MAIN.MOTHER PROFILE" | translate }}</h4>
                     <p class="category">Last updated: {{ mother.registration_date }}</p>
@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group form-black label-floating is-empty">
-                                    <p class="category">Primary Mobile Number</p>
+                                <p class="category">Primary Mobile Number</p>
                                 <h4>{{ mother.mobile1 }}</h4>
                             </div>
                         </div>
@@ -72,6 +72,60 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
+            <div *ngIf="model != 'mother' && model != 'child'"class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">{{ "MAIN.SEARCH" | translate }}</h4>
+                    <p class="category"></p>
+                    <div class="card-content">
+                        <div class="row">
+                            <!-- Here goes the form -->
+                            <div class="col-md-3">
+                                <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
+                                    <label class="control-label">Mother ID</label>
+                                    <!-- <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)"> -->
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="model == 'child'" class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">{{ "MAIN.CHILD PROFILE" | translate }}</h4>
+                    <!-- <p class="category">Last updated:</p> -->
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Name {{ child.first_name }}</p>
+                                <h4>{{ child.first_name }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Date of Birth</p>
+                                <h4>{{ child.date_of_birth }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Gender</p>
+                                <h4>{{ child.gender }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-black label-floating is-empty">
+                                <p class="category">Blood Group</p>
+                                <h4>{{ child.blood_group }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <button (click)="immunize(child.pk)" type="submit" class="btn btn-danger pull-left">{{ 'MAIN.IMMUNIZE' | translate }}</button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
