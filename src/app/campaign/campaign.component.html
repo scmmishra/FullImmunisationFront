@@ -28,6 +28,12 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group form-black label-floating is-empty">
+                                                    <label class="control-label">Name</label>
+                                                    <input type="text" class="form-control" id="Name" [(ngModel)]="model.name" name="Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group form-black label-floating is-empty">
                                                     <label class="control-label">Campaign Type</label>
                                                     <select class="form-control" id="campaign_type" [(ngModel)]="model.campaign_type" name="is_mobile" required>
                                                         <option value="Mobile">Mobile</option>
@@ -36,7 +42,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5">
+                                            <div class="col-md-4">
                                                 <div class="form-group form-black label-floating is-empty">
                                                     <label class="control-label">Organizer</label>
                                                     <input type="text" class="form-control" id="organizer" [(ngModel)]="model.organizer_id" name="organizer" required>
@@ -44,13 +50,13 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group form-black label is-empty">
                                                     <label class="control-label">Start Date</label>
                                                     <input type="date" class="form-control" id="st_dt" [(ngModel)]="model.start_date" name="st_dt" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group form-black label is-empty">
                                                     <label class="control-label">End Date</label>
                                                     <input type="date" class="form-control" id="end_dt" [(ngModel)]="model.end_date" name="end_dt" required>
