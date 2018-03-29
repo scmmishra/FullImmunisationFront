@@ -9,8 +9,14 @@ import {Http, Response, RequestOptions, Headers} from '@angular/http';
 export class CampaignComponent implements OnInit {
 
 
+
     model = new Campaign('', '', '', '', '');
     constructor(private http: Http) {}
+
+  model = new Campaign('','', '','','');;
+  constructor(private http: Http){}
+
+
 
   model = new Campaign('','', '','','');;
   constructor(private http: Http){}
