@@ -7,9 +7,9 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
   styleUrls: ['./campaign.component.scss']
 })
 export class CampaignComponent implements OnInit {
-  model = new Campaign('','', '','');;
+  model = new Campaign('','', '','','');;
   constructor(private http: Http){}
-  
+
 
     ngOnInit() {}
   get current() { return JSON.stringify(this.model); }
