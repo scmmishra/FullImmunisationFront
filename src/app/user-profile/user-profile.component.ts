@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
-import { ArrayType } from '@angular/compiler/src/output/output_ast';
+import {ArrayType} from '@angular/compiler/src/output/output_ast';
 
 @Component({
     selector: 'app-user-profile',
@@ -23,26 +23,37 @@ export class UserProfileComponent implements OnInit {
             if (params.model == 'child') {
                 this.model = 'child';
                 this.child = params;
-                console.log('HAHAHAHHA');
                 console.log(this.child);
             } else if (params.model == 'mother') {
                 this.model = 'mother';
                 this.mother = params;
-                console.log('http://localhost:8000/api/mothers/' + this.mother['pk'] + '/children/')
+                console.log(
+                    'http://localhost:8000/api/mothers/' +
+                        this.mother['pk'] +
+                        '/children/'
+                );
                 this.getChildren();
             }
         });
     }
 
-    immunizeChild(primk){
-        console.log(primk)
+    immunizeChild(pk) {
+        console.log('Redirecting to Immunization Module');
+        console.log(pk);
     }
-    viewChildProfile(pk){
-        console.log(pk)
+    viewChildProfile(kid) {
+        console.log('Redirecting to Profile Page');
+        console.log(kid);
+        kid['model'] = 'child';
+        this.router.navigate(['/user-profile', kid]);
     }
     getChildren() {
         this.http
-            .get('http://localhost:8000/api/mothers/' + this.mother['pk'] + '/children/')
+            .get(
+                'http://localhost:8000/api/mothers/' +
+                    this.mother['pk'] +
+                    '/children/'
+            )
             .subscribe(data => {
                 this.children = data.json().data.fields.children;
                 // this.children = JSON.stringify(data.json().data.fields.children);
@@ -51,9 +62,7 @@ export class UserProfileComponent implements OnInit {
             });
     }
 
-    ngOnInit() {
-
-    }
+    ngOnInit() {}
 
     addChild(pk) {
         this.router.navigate([
