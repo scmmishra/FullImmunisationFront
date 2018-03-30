@@ -23,12 +23,10 @@ import { SearchImmunizeService } from './search-immunize.service';
 import { CampaignComponent } from './campaign/campaign.component';
 import { RegisterchildComponent } from './registerchild/registerchild.component';
 import { RegistermotherComponent } from './registermother/registermother.component';
-<<<<<<< HEAD
-import { AefiComponent } from './aefi/aefi.component'
-=======
+import { AefiComponent } from './aefi/aefi.component';
 import { LoginComponent } from './login/login.component';
 import { SearchService } from './search.service'
->>>>>>> Working Immunization Module
+
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -46,11 +44,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CampaignComponent,
     RegisterchildComponent,
     RegistermotherComponent,
-<<<<<<< HEAD
     AefiComponent,
-=======
     LoginComponent,
->>>>>>> Working Immunization Module
   ],
   imports: [
     BrowserModule,
