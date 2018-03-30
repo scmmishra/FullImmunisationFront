@@ -1,6 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
+import { ArrayType } from '@angular/compiler/src/output/output_ast';
+import { SearchService } from '../search.service';
 import {ArrayType} from '@angular/compiler/src/output/output_ast';
 
 @Component({
@@ -13,11 +15,13 @@ export class UserProfileComponent implements OnInit {
     public child: object;
     public model: string;
     public children;
+    public profileList: any[];
 
     constructor(
         private http: Http,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private searchServ: SearchService
     ) {
         this.route.params.subscribe(params => {
             if (params.model == 'child') {
@@ -37,6 +41,14 @@ export class UserProfileComponent implements OnInit {
         });
     }
 
+    search(id: string){
+        let first_name = "";
+        let last_name = "";
+        this.searchServ.searchMother(id, first_name, last_name).subscribe(data => {this.profileList = data.json().data; console.log(data.json().data)});
+    }
+
+    immunizeChild(primk){
+        console.log(primk)
     immunizeChild(pk) {
         console.log('Redirecting to Immunization Module');
         console.log(pk);

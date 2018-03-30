@@ -22,6 +22,7 @@ export class ImmunizationComponent implements OnInit {
   private searchTerms1 = new Subject<string>();
   private searchTerms2 = new Subject<string>();
 
+
   public items: any[][];
   constructor(private immServe: SearchImmunizeService) { 
   }
@@ -30,7 +31,7 @@ export class ImmunizationComponent implements OnInit {
   first_name: string = "";
   last_name: string = "";
   makeVisible: boolean = false; //alter the visiblity of search result division
-  search1(id: string, first_name: string, last_name: string): void {  //pass whichever variable chanfes
+  search1(id: string, first_name: string, last_name: string): void {  //pass whichever variable changes
     
     if (this.id != id){
       this.id = id;
@@ -44,6 +45,9 @@ export class ImmunizationComponent implements OnInit {
     }
     if (id == "" && first_name == "" && last_name == ""){
       this.makeVisible = false; //set false if none of the fields is filled
+      this.selectedValues = [];
+      this.selectedIds = [];
+      this.immList = []
     } else {
       this.makeVisible = true; //else set true
       this.immServe.searchImmunization(id, first_name, last_name).subscribe(data => {this.immList = data.json().data; console.log(data.json().data)});
@@ -51,7 +55,7 @@ export class ImmunizationComponent implements OnInit {
       
   }
 
-
+ 
   Submit(id){
     let index = this.selectedIds.indexOf(id);
     if(index == -1){                                   //something's probably wrong with the user
@@ -59,6 +63,16 @@ export class ImmunizationComponent implements OnInit {
     }
     else{
       console.log({id: id, date: new Date().toISOString().substring(0,10), vaccinesRem: this.selectedValues[index].toString(), campaign_id: 2, centre_id: 2});
+      console.log(this.selectedValues[index].toString())
+      //this.immServe.sendImmunizations(id, new Date().toISOString().substring(0,10), selectedValues[index].toString(), 2, 2).subscribe()
+
+      for (var vacc of this.selectedValues[index]){
+        this.immServe.sendImmunizations(id, new Date().toISOString().substring(0,10), vacc, 2, 2).subscribe()
+      }
+
+      this.immServe.searchImmunization(this.id, this.first_name, this.last_name).subscribe(data => {this.immList = data.json().data; console.log(data.json().data)});
+      this.selectedValues = [];
+      this.selectedIds = [];
       //conditional clearing of the specific entry or refresh the entire page in case of failure
     }
   }
