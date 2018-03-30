@@ -8,7 +8,9 @@
         "ADD CHILD":"ADD CHILD",
         "CHILD PROFILE":"CHILD PROFILE",
         "SEARCH": "SEARCH",
-        "IMMUNIZE": "IMMUNIZE"
+        "IMMUNIZE": "IMMUNIZE",
+        "VIEW PROFILE": "VIEW PROFILE",
+        "REPORT AEFI": "REPORT AEFI"
     },
     "SIDEBAR": {
         "DASHBOARD": "Dashboard",
