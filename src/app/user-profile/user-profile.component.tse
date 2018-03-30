@@ -28,7 +28,7 @@ export class UserProfileComponent implements OnInit {
                 this.model = 'mother';
                 this.mother = params;
                 console.log(
-                    'http://35.174.162.76:8000/api/mothers/' +
+                    'http://localhost:8000/api/mothers/' +
                         this.mother['pk'] +
                         '/children/'
                 );
@@ -50,7 +50,7 @@ export class UserProfileComponent implements OnInit {
     getChildren() {
         this.http
             .get(
-                'http://35.174.162.76:8000/api/mothers/' +
+                'http://localhost:8000/api/mothers/' +
                     this.mother['pk'] +
                     '/children/'
             )

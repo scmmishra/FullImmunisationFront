@@ -1,0 +1,23 @@
+<footer>
+    <div class="container-fluid">
+        <nav class="pull-left">
+            <ul>
+                <li>
+                    <a href="#">
+                        Documentation
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Support
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Licenses
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</footer>

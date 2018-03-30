@@ -17,7 +17,7 @@ export class AefiComponent implements OnInit {
   registerAefi() {
     console.log(this.aefi);
     this.http
-        .post('http://35.174.162.76:8000/api/campaigns/', this.aefi)
+        .post('http://localhost:8000/api/campaigns/', this.aefi)
         .subscribe(
             response => {
                 console.log(response);

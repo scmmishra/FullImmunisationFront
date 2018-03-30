@@ -1,0 +1,45 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <div class="card card-content">
+                    <div class="card-nav-tabs">
+                        <div class="card-header" data-background-color="red">
+                            <div class="nav-tabs-navigation">
+                                <div class="nav-tabs-wrapper">
+                                    <ul class="nav nav-tabs" data-tabs="tabs">
+                                        <li *ngIf="!currentModel || currentModel == 'mother'" class="active">
+                                            <a href="#mother" data-toggle="tab">
+                                                <i class="material-icons">pregnant_woman</i>
+                                                Mother
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a *ngIf="currentModel && currentModel == 'child'" href="#child" data-toggle="tab">
+                                                <i class="material-icons">child_care</i>
+                                                Child
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <div class="tab-content">
+                                <div *ngIf="!currentModel || currentModel == mother" class="tab-pane active" id="mother">
+                                    <app-registermother></app-registermother>
+                                </div>
+                                <div *ngIf="currentModel && currentModel == 'child'" class="tab-pane active" id="child">
+                                    <app-registerchild [mother_id]="mother_id"></app-registerchild>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

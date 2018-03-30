@@ -35,7 +35,7 @@ export class RegistermotherComponent implements OnInit {
     registerMother() {
         console.log(this.currentMother);
         this.http
-            .post('http://35.174.162.76:8000/api/mothers/', this.currentMother)
+            .post('http://localhost:8000/api/mothers/', this.currentMother)
             .subscribe(
                 response => {
                     var result = response;

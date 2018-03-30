@@ -1,0 +1,37 @@
+{
+    "MAIN":{
+        "TITLE": "IMMUNE INDIA",
+        "UPDATE": "UPDATE",
+        "REGISTER": "REGISTER",
+        "MOTHER PROFILE": "Mother Profile",
+        "EDIT PROFILE": "EDIT PROFILE",
+        "ADD CHILD":"ADD CHILD",
+        "CHILD PROFILE":"CHILD PROFILE",
+        "SEARCH": "SEARCH",
+        "IMMUNIZE": "IMMUNIZE",
+        "VIEW PROFILE": "VIEW PROFILE",
+        "REPORT AEFI": "REPORT AEFI"
+    },
+    "SIDEBAR": {
+        "DASHBOARD": "Dashboard",
+        "IMMUNIZATION": "Immunization",
+        "USER_PROFILE": "User Profile",
+        "REGISTRATION": "Registration",
+        "CAMPAIGN": "Campaign"
+    },
+    "BCG1":{
+        "TITLE": "BCG 1",
+        "TIMING": "At Birth",
+        "NOTES": "Administer the vaccine to the newborn before discharging"
+    },
+    "OPV1":{
+        "TITLE": "OPV 1",
+        "TIMING": "At Birth",
+        "NOTES": "Administer the vaccine to the newborn before discharging"
+    },
+    "HEPB1":{
+        "TITLE": "HEP B1",
+        "TIMING": "At Birth",
+        "NOTES": "Administer the vaccine to the newborn before discharging"
+    }
+}

@@ -35,7 +35,7 @@ export class RegisterchildComponent implements OnInit {
     registerChild() {
         // console.log(this.currentChild);
         this.http
-            .post('http://35.174.162.76:8000/api/children/', this.currentChild)
+            .post('http://localhost:8000/api/children/', this.currentChild)
             .subscribe(
                 response => {
                     var result = response;

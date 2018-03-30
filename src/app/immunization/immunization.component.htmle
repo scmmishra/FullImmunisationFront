@@ -1,0 +1,70 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-header" data-background-color="red">
+          <div class="card-content">
+            <div class="row" style="margin: 0% 0% 1% 0%; padding: 0px">
+              <div class="col-md-5" style="margin: 0; padding: 0">
+                <h3 style="margin: 0; padding: 0">Search</h3>
+              </div>
+            </div>
+            <div class="row"> <!-- Here goes the form -->
+              <div class="col-md-3">
+                  <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
+                      <label class="control-label">ID</label>
+                      <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
+                      <label class="control-label">First Name</label>
+                      <input #searchBoxFName type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
+                      <label class="control-label">Last Name</label>
+                      <input #searchBoxLName type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)">
+                  </div>
+              </div>
+            </div> <!-- Here goes the form -->
+          </div>
+        </div>
+        <div class="card-content">
+          <p> Selected value: {{selectedValues | json}} </p> 
+          <div *ngIf = "makeVisible">
+              {{immList}}
+              <h4 class="title">Results</h4>
+              <collapsible-list [type]="'accordion'">
+    
+                <collapsible-list-item *ngFor="let imm of immList">
+                  <collapsible-header class="waves-effect">
+                    {{ imm.fields.first_name }}
+                  </collapsible-header>
+                  <collapsible-body [expanded]="false">
+                    <!--<ul>
+                      <li *ngFor="let vacc of imm.pending"> {{vacc}} </li>
+                    </ul>-->
+                    <form>
+                      <span *ngFor="let vacc of imm.fields.pending">
+                          
+                          <input type="checkbox" name="{{vacc.fields.name}}" value="{{vacc.fields.name}}" (change)="change(imm.pk, vacc.pk)"/><!-- function to find the index of the child-->
+                          {{vacc.fields.name}}
+
+                      </span>
+                      <button (click) = Submit(imm.pk)>Submit</button>
+                    </form>
+                  </collapsible-body>
+                </collapsible-list-item>
+
+              </collapsible-list>
+        	</div>
+
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
