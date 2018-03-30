@@ -26,7 +26,7 @@ export class SearchImmunizeService {
 		const headers: Headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		return this.http.post('http://127.0.0.1:8000/api/children/filter/', JSON.stringify(object), headers)
+		return this.http.post('http://127.0.0.1:8000/api/children/filter/', JSON.stringify(object))
 	}
 
 	sendImmunizations(id: number, date: string, vaccine_ids: number, campaign_id: number, centre_id: number){
