@@ -45,11 +45,18 @@ export class UserProfileComponent implements OnInit {
     search(id: string){
         let first_name = "";
         let last_name = "";
-        this.searchServ.searchMother(id, first_name, last_name).subscribe(data => {this.profileList = data.json().data; console.log(data.json().data)});
+        this.searchServ.searchMother(id, first_name, last_name).subscribe(data => {
+            this.profileList = data.json().data; 
+            console.log(data.json().data);
+            /*this.searchServ.getKids(this.profileList[0].pk).subscribe(
+                data => {console.log(data);} 
+            )*/
+        });
     }
 
     immunizeChild(primk){
-        console.log(primk)
+        console.log(primk);
+        this.router.navigate(['/immunization', primk])
     }
     viewChildProfile(kid) {
         console.log('Redirecting to Profile Page');
@@ -83,6 +90,6 @@ export class UserProfileComponent implements OnInit {
 
     editMother(mother) {
         console.log(mother);
-        this.router.navigate(['/registration'], mother);
+        this.router.navigate(['/registration'], mother); //add mother object as input here
     }
 }

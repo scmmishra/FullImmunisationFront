@@ -17,6 +17,10 @@ export class SearchService {
 	  	page: 1
   	}
 
-  	return this.http.post('http://127.0.0.1:8000/api/children/filter/', JSON.stringify(object));
+  	return this.http.post('http://127.0.0.1:8000/api/mothers/filter/', JSON.stringify(object));
+  }
+
+  getKids(id: string){
+	//return this.http.get(concat("http://127.0.0.1:8000/api/mothers/", id ,"/children/"))
   }
 }
