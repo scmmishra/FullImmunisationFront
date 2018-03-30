@@ -1,0 +1,50 @@
+<span>{{user.username}} {{user.password}}</span>
+<div class="main-content">
+    <div class="container-fluid" style="width: 50%; margin-top: 5%">
+        <div class="row">
+	        <form (ngSubmit)="registerMother()">    
+	            <div>
+	                <div class="card card-content">
+	                    <div class="card-nav-tabs">
+	                        <div class="card-header" data-background-color="red">
+	                            <div class="nav-tabs-navigation">
+	                                <div class="nav-tabs-wrapper">
+	                                    Sign In
+	                                    <div class="ripple-container">
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+
+
+	                        <div class="card-content">
+
+	                        	<div class="row">
+
+							        <div class="col-md-12">
+							            <div class="form-group form-black label-floating is-empty">
+							                <label class="control-label">UserId</label>
+							                <input type="text" class="form-control" id="UserId" [(ngModel)]="user.username" name="UserId" required>
+							            </div>
+							        </div>
+							        <div class="col-md-12">
+							            <div class="form-group form-black label-floating is-empty">
+							                <label class="control-label">Password</label>
+							                <input type="Password" class="form-control" id="Password" [(ngModel)]="user.password" name="Password" required>
+							            </div>
+							        </div>
+							    
+							    </div>
+	                        </div>
+
+	                    </div>
+	                    <div class="row">
+		                    <div class="col-md-4"><button type="submit" class="btn btn-danger"> Login </button> <div class="clearfix"></div></div>
+		   
+	    				</div>
+	                </div>
+	            </div>
+		    </form>
+	    </div>
+	</div>
+</div>
