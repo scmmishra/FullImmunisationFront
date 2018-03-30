@@ -44,6 +44,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CampaignComponent,
     RegisterchildComponent,
     RegistermotherComponent,
+
+    LoginComponent,
     AefiComponent,
     LoginComponent,
   ],

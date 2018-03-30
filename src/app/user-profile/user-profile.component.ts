@@ -1,9 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
-
-import {ArrayType} from '@angular/compiler/src/output/output_ast';
 import { SearchService } from '../search.service';
+import {ArrayType} from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -57,6 +56,7 @@ export class UserProfileComponent implements OnInit {
     immunizeChild(primk){
         console.log(primk);
         this.router.navigate(['/immunization', primk])
+        this.searchServ.searchMother(primk, "", "").subscribe(data => {this.profileList = data.json().data; console.log(data.json().data)});
     }
     viewChildProfile(kid) {
         console.log('Redirecting to Profile Page');
