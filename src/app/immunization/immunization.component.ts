@@ -18,6 +18,7 @@ import { SearchImmunizeService } from '../search-immunize.service';
 })
 export class ImmunizationComponent implements OnInit {
   immList$: Observable<any[]>;
+  immList: any;
   private searchTerms1 = new Subject<string>();
   private searchTerms2 = new Subject<string>();
 
@@ -29,22 +30,23 @@ export class ImmunizationComponent implements OnInit {
   first_name: string = "";
   last_name: string = "";
   makeVisible: boolean = false; //alter the visiblity of search result division
-
   search1(id: string, first_name: string, last_name: string): void {  //pass whichever variable chanfes
-  	if (id == "" && first_name == "" && last_name == ""){
-  		this.makeVisible = false; //set false if none of the fields is filled
-  	} else {
-  		this.makeVisible = true; //else set true
-  	}
+    
     if (this.id != id){
       this.id = id;
-      this.searchTerms1.next(id);
+      //this.searchTerms1.next(id);
     } else if (this.first_name != first_name){
       this.first_name = first_name;
-      this.searchTerms1.next(first_name);
+      //this.searchTerms1.next(first_name);
     } else {
       this.last_name = last_name;
-      this.searchTerms1.next(last_name);
+      //this.searchTerms1.next(last_name);
+    }
+    if (id == "" && first_name == "" && last_name == ""){
+      this.makeVisible = false; //set false if none of the fields is filled
+    } else {
+      this.makeVisible = true; //else set true
+      this.immServe.searchImmunization(id, first_name, last_name).subscribe(data => {this.immList = data.json().data; console.log(data.json().data)});
     }
       
   }
@@ -56,7 +58,8 @@ export class ImmunizationComponent implements OnInit {
       console.log("I miss Python...");
     }
     else{
-      console.log({id: id, vaccinesRem: this.selectedValues[index].toString()});
+      console.log({id: id, date: new Date().toISOString().substring(0,10), vaccinesRem: this.selectedValues[index].toString(), campaign_id: 2, centre_id: 2});
+      //conditional clearing of the specific entry or refresh the entire page in case of failure
     }
   }
   
@@ -88,7 +91,7 @@ export class ImmunizationComponent implements OnInit {
 
   
   ngOnInit(){
-    this.immList$ = this.searchTerms1.pipe(debounceTime(300), switchMap((term: string) => this.immServe.searchImmunization(this.id, this.first_name, this.last_name)));
+    //this.immList$ = this.searchTerms1.pipe(debounceTime(300), switchMap((term: string) => this.immServe.searchImmunization(this.id, this.first_name, this.last_name)));
   }
   
 }
