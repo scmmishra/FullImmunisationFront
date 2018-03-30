@@ -23,7 +23,8 @@ import { SearchImmunizeService } from './search-immunize.service';
 import { CampaignComponent } from './campaign/campaign.component';
 import { RegisterchildComponent } from './registerchild/registerchild.component';
 import { RegistermotherComponent } from './registermother/registermother.component';
-import { AefiComponent } from './aefi/aefi.component'
+import { AefiComponent } from './aefi/aefi.component';
+import { NguiMapModule } from '@ngui/map';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -61,7 +62,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyDfHJrD_-teoecGuMVS5cXSWRN6wJPZ1so&libraries=visualization,places,drawing'})
   ],
   providers: [ SearchImmunizeService ],
   bootstrap: [AppComponent]
