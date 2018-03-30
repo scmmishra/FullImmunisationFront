@@ -5,7 +5,10 @@
         "REGISTER": "रजिस्टर",
         "MOTHER PROFILE": "प्रोफाइल",
         "EDIT PROFILE": "प्रोफाइल का संशोधन",
-        "ADD CHILD": "बच्चे का रजिस्ट्रीकरण"
+        "ADD CHILD": "बच्चे का रजिस्ट्रीकरण",
+        "CHILD PROFILE":"बच्चे का प्रोफाइल",
+        "SEARCH": "SEARCH",
+        "IMMUNIZE": "IMMUNIZE"
     },
     "SIDEBAR": {
         "DASHBOARD": "डैशबोर्ड",
