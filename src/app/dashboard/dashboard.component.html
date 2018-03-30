@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-header" data-background-color="red">
                         <h4 class="title">Heat Map</h4>
-                    
+
                         <p class="category">{{ this.now }}</p>
                     </div>
                     <div class="card-content">
@@ -14,7 +14,7 @@
                         </ngui-map>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
 
         <div class="row">
@@ -196,23 +196,38 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header card-chart" data-background-color="red">
-                        <div class="ct-chart" id="completedTasksChart"></div>
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Vaccine Retention Rate</h4>
+                        <p class="category">Retention over period of time</p>
                     </div>
-                    <div class="card-content">
-                        <h4 class="title">Completed Tasks</h4>
-                        <p class="category">Last Campaign Performance</p>
-                        <div id="pichart"></div>
+                    <div class="card-content" style="padding-right:0px;padding-left:0px">
+                            <div class="ct-chart" id="Penta"></div>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">access_time</i> campaign sent 2 days ago
+                            <b>What we measure:</b> Percent of people who took the next vaccine in a specific course, hence plotting the retention of a particular vaccine.
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header" data-background-color="red">
+                            <h4 class="title">Vaccine Retention Rate</h4>
+                            <p class="category">Retention over period of time</p>
+                        </div>
+                        <div class="card-content" style="padding-right:0px;padding-left:0px">
+                                <div class="ct-chart" id="Penta"></div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <b>What we measure:</b> Percent of people who took the next vaccine in a specific course, hence plotting the retention of a particular vaccine.
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
 
         <!--Table Boxes-->
@@ -490,5 +505,5 @@
                 </div>
             </div>
         </div>
-    
+
 </div>

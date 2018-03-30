@@ -105,7 +105,7 @@ export class DashboardComponent implements OnInit {
                     values: [80, 80]
                 },
                 {
-                    name: "First dose of measles vaccine", type: "line",
+                    name: "1st dose for Measles", type: "line",
                     values: [78, 78]
                 }
             ]
@@ -158,75 +158,37 @@ export class DashboardComponent implements OnInit {
 
         /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
-        var dataEmailsSubscriptionChart = {
-            labels: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'Mai',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec',
+        const dataPenta = {
+            labels: ["Dose 1", "Dose 2", "Dose 3", "Dose 4",
+                "Dose 5", "Dose 6"
             ],
-            series: [
-                [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
-            ],
-        };
-        var optionsEmailsSubscriptionChart = {
-            axisX: {
-                showGrid: false,
-            },
-            low: 0,
-            high: 1000,
-            chartPadding: {top: 0, right: 5, bottom: 0, left: 0},
-        };
-        var responsiveOptions: any[] = [
-            [
-                'screen and (max-width: 640px)',
+            datasets: [
                 {
-                    seriesBarDistance: 5,
-                    axisX: {
-                        labelInterpolationFnc: function(value) {
-                            return value[0];
-                        },
-                    },
+                    name: "OPV", type: "line",
+                    values: [92, 85, 76, 75, 72, 70]
                 },
-            ],
-        ];
-        var emailsSubscriptionChart = new Chartist.Bar(
-            '#emailsSubscriptionChart',
-            dataEmailsSubscriptionChart,
-            optionsEmailsSubscriptionChart,
-            responsiveOptions
-        );
-        /*pie chart*/
-        let chart = new Chart( "#pichart", { // or DOM element
-            data: {
-              labels: ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
-              "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
-        
-              datasets: [
                 {
-                  label: "Some Data", type: 'bar',
-                  values: [25, 40, 30, 35, 8, 52, 17, -4]
-                },
-              ],
-        
-              yMarkers: [{ label: "Marker", value: 70 }],
-              yRegions: [{ label: "Region", start: -10, end: 50 }]
-            },
-        
-            title: "Performance ",
-            type: 'pie', // or 'bar', 'line', 'pie', 'percentage'
-            height: 250,
-            colors: ['purple', '#ffa3ef', 'red']
-          });
+                    name: "Penta", type: "line",
+                    values: [80, 76, 72, 68, 65]
+                }
+            ]
+        }
 
-        //start animation for the Emails Subscription Chart
+        const Penta = new Chart("#Penta", { // or a DOM element
+            data: dataPenta,
+            type: 'line', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+            height: 250,
+            colors: ['#e53935'],
+            lineOptions: {
+                dotSize: 4,          // default: 4
+                hideLine: 0,         // default: 0
+                hideDots: 0,         // default: 0
+                heatline: 0,         // default: 0
+                regionFill: 1        // default: 0
+              }
+        })
+
+
+
     }
 }
