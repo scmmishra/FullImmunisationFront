@@ -1,30 +1,47 @@
+Skip to content
+ 
+Search
+Pull requests
+Issues
+Marketplace
+Explore
+ @RnabSanyal
+Sign out
+2
+0 0 scmmishra/FullImmunisationFront Private
+ Code  Issues 3  Pull requests 2  Projects 0  Wiki  Insights
+FullImmunisationFront/src/app/user-profile/user-profile.component.html
+5a9e1f4  14 hours ago
+@scmmishra scmmishra View profile button redirects to child profile
+     
+169 lines (168 sloc)  9.67 KB
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div  *ngIf="profileList && profileList[0].model == 'stupidapp.mother'"> <!--changed model to list[0].model-->
+            <div  *ngIf="model == 'mother'">
                 <div class="card">
                     <div class="card-header" data-background-color="red">
                         <h4 class="title">{{ "MAIN.MOTHER PROFILE" | translate }}</h4>
-                        <p class="category">Last updated: {{ profileList[0].fields.registration_date }}</p>
+                        <p class="category">Last updated: {{ mother.registration_date }}</p>
                     </div>
                     <div class="card-content">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
                                     <p class="category">Name</p>
-                                    <h4>{{ profileList[0].fields.first_name }} {{ profileList[0].fields.last_name }}</h4>
+                                    <h4>{{ mother.first_name }} {{ mother.last_name }}</h4>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
                                     <p class="category">Date of Birth</p>
-                                    <h4>{{ profileList[0].fields.date_of_birth }}</h4>
+                                    <h4>{{ mother.date_of_birth }}</h4>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
-                                    <p class="category">ID</p>
-                                    <h4>{{ profileList[0].fields.aadhar }}</h4>
+                                    <p class="category">Aadhar Number</p>
+                                    <h4>{{ mother.aadhar }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -32,19 +49,19 @@
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
                                     <p class="category">Primary Mobile Number</p>
-                                    <h4>{{ profileList[0].fields.mobile1 }}</h4>
+                                    <h4>{{ mother.mobile1 }}</h4>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
                                     <p class="category">Secondary Mobile Number</p>
-                                    <h4>{{ profileList[0].fields.mobile2 }}</h4>
+                                    <h4>{{ mother.mobile2 }}</h4>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
                                     <p class="category">Blood Group</p>
-                                    <h4>{{ profileList[0].fields.blood_group }}</h4>
+                                    <h4>{{ mother.blood_group }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -52,19 +69,19 @@
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
                                     <p class="category">Highest Qualification</p>
-                                    <h4>{{ profileList[0].fields.education }}</h4>
+                                    <h4>{{ mother.education }}</h4>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
                                     <p class="category">Economic Status</p>
-                                    <h4>{{ profileList[0].fields.economic_status }}</h4>
+                                    <h4>{{ mother.economic_status }}</h4>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group form-black label-floating is-empty">
                                     <p class="category">HIV Status</p>
-                                    <h4>HIV {{ profileList[0].fields.hiv_status }}</h4>
+                                    <h4>HIV {{ mother.hiv_status }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +95,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header" data-background-color="red">
-                                <h4 class="title">{{ profileList[0].fields.first_name }}'s Children</h4>
+                                <h4 class="title">{{ mother.first_name }}'s Children</h4>
                                 <!-- <p class="category">{{ children }}</p> -->
                             </div>
                             <div class="card-content table-responsive">
@@ -98,7 +115,7 @@
                                             <td>{{kiddo.fields.gender}}</td>
                                             <td>HIV {{kiddo.fields.hiv_status}}</td>
                                             <td>
-                                                <button (click)="immunizeChild(kiddo)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.IMMUNIZE' | translate }}</button>
+                                                <button (click)="immunizeChild(kiddo.fields)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.IMMUNIZE' | translate }}</button>
                                                 <button (click)="viewChildProfile(kiddo.fields)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.VIEW PROFILE' | translate }}</button>
                                                 <button type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.REPORT AEFI' | translate }}</button>
                                             </td>
@@ -121,9 +138,9 @@
                                 <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
                                     <label class="control-label">Mother ID</label>
                                     <!-- <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)"> -->
-                                    <input class="form-control" type="text" #idBox (keyup)="search(idBox.value)">
+                                    <input class="form-control" type="text">
                                 </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
