@@ -42,6 +42,7 @@ export class UserProfileComponent implements OnInit {
         console.log(pk);
     }
     viewChildProfile(kid) {
+        console.log('Redirecting to Profile Page');
         console.log(kid);
         kid['model'] = 'child';
         this.router.navigate(['/user-profile', kid]);
