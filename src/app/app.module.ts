@@ -22,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchImmunizeService } from './search-immunize.service';
 import { CampaignComponent } from './campaign/campaign.component';
 import { RegisterchildComponent } from './registerchild/registerchild.component';
-import { RegistermotherComponent } from './registermother/registermother.component'
+import { RegistermotherComponent } from './registermother/registermother.component';
+import { AefiComponent } from './aefi/aefi.component'
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -40,6 +41,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CampaignComponent,
     RegisterchildComponent,
     RegistermotherComponent,
+    AefiComponent,
   ],
   imports: [
     BrowserModule,

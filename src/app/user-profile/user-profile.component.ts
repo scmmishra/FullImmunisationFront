@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
-import { ArrayType } from '@angular/compiler/src/output/output_ast';
+import {ArrayType} from '@angular/compiler/src/output/output_ast';
 
 @Component({
     selector: 'app-user-profile',
@@ -27,24 +27,32 @@ export class UserProfileComponent implements OnInit {
             } else if (params.model == 'mother') {
                 this.model = 'mother';
                 this.mother = params;
-                console.log('http://localhost:8000/api/mothers/' + this.mother['pk'] + '/children/')
+                console.log(
+                    'http://localhost:8000/api/mothers/' +
+                        this.mother['pk'] +
+                        '/children/'
+                );
                 this.getChildren();
             }
         });
     }
 
-    immunizeChild(pk){
-        console.log("Redirecting to Immunization Module")
-        console.log(pk)
+    immunizeChild(pk) {
+        console.log('Redirecting to Immunization Module');
+        console.log(pk);
     }
-    viewChildProfile(kid){
+    viewChildProfile(kid) {
         console.log(kid);
-        kid['model'] = "child";
-        this.router.navigate(["/user-profile", kid]);
+        kid['model'] = 'child';
+        this.router.navigate(['/user-profile', kid]);
     }
     getChildren() {
         this.http
-            .get('http://localhost:8000/api/mothers/' + this.mother['pk'] + '/children/')
+            .get(
+                'http://localhost:8000/api/mothers/' +
+                    this.mother['pk'] +
+                    '/children/'
+            )
             .subscribe(data => {
                 this.children = data.json().data.fields.children;
                 // this.children = JSON.stringify(data.json().data.fields.children);
@@ -53,9 +61,7 @@ export class UserProfileComponent implements OnInit {
             });
     }
 
-    ngOnInit() {
-
-    }
+    ngOnInit() {}
 
     addChild(pk) {
         this.router.navigate([

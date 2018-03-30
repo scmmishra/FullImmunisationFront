@@ -22,14 +22,14 @@ export class RegisterchildComponent implements OnInit {
     ngOnInit() {
         console.log(this.mother_id);
         this.modelChild = new Child(
-        this.mother_id,
-        '',
-        '',
-        '',
-        '',
-        '',
-        this.now.toISOString().substring(0, 10)
-    );
+            this.mother_id,
+            '',
+            '',
+            '',
+            '',
+            '',
+            this.now.toISOString().substring(0, 10)
+        );
     }
 
     registerChild() {
@@ -42,10 +42,10 @@ export class RegisterchildComponent implements OnInit {
                     var childData = result.json().data.fields;
                     console.log(result.json().data.fields);
                     childData['pk'] = result.json().data.pk;
-                    childData['model'] = "child";
+                    childData['model'] = 'child';
                     console.log(childData);
                     console.log('Child Registered');
-                    this.router.navigate(["/user-profile", childData]);
+                    this.router.navigate(['/user-profile', childData]);
                 },
                 err => {
                     console.log('Error occured');
