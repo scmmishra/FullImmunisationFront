@@ -12,7 +12,7 @@ export class UserProfileComponent implements OnInit {
     public mother: object;
     public child: object;
     public model: string;
-    public children: object;
+    public children;
 
     constructor(
         private http: Http,
@@ -33,13 +33,21 @@ export class UserProfileComponent implements OnInit {
             }
         });
     }
+
+    immunizeChild(primk){
+        console.log(primk)
+    }
+    viewChildProfile(pk){
+        console.log(pk)
+    }
     getChildren() {
         this.http
             .get('http://localhost:8000/api/mothers/' + this.mother['pk'] + '/children/')
             .subscribe(data => {
-                console.log(data.json().data.fields.children);
                 this.children = data.json().data.fields.children;
-                console.log(this.children)
+                // this.children = JSON.stringify(data.json().data.fields.children);
+                console.log(typeof this.children[0]);
+                console.log(this.children[0]);
             });
     }
 

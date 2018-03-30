@@ -1,78 +1,116 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div *ngIf="model == 'mother'" class="card">
-                <div class="card-header" data-background-color="red">
-                    <h4 class="title">{{ "MAIN.MOTHER PROFILE" | translate }}</h4>
-                    <p class="category">Last updated: {{ mother.registration_date }}</p>
+            <div  *ngIf="model == 'mother'">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">{{ "MAIN.MOTHER PROFILE" | translate }}</h4>
+                        <p class="category">Last updated: {{ mother.registration_date }}</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Name</p>
+                                    <h4>{{ mother.first_name }} {{ mother.last_name }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Date of Birth</p>
+                                    <h4>{{ mother.date_of_birth }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Aadhar Number</p>
+                                    <h4>{{ mother.aadhar }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Primary Mobile Number</p>
+                                    <h4>{{ mother.mobile1 }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Secondary Mobile Number</p>
+                                    <h4>{{ mother.mobile2 }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Blood Group</p>
+                                    <h4>{{ mother.blood_group }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Highest Qualification</p>
+                                    <h4>{{ mother.education }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">Economic Status</p>
+                                    <h4>{{ mother.economic_status }}</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <p class="category">HIV Status</p>
+                                    <h4>HIV {{ mother.hiv_status }}</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button (click)="editMother(mother)" type="submit" class="btn btn-danger pull-left">{{ 'MAIN.EDIT PROFILE' | translate }}</button>
+                        <button (click)="addChild(mother.pk)" type="submit" class="btn btn-danger pull-left">{{ 'MAIN.ADD CHILD' | translate }}</button>
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">Name</p>
-                                <h4>{{ mother.first_name }} {{ mother.last_name }}</h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header" data-background-color="red">
+                                <h4 class="title">{{ mother.first_name }}'s Children</h4>
+                                <!-- <p class="category">{{ children }}</p> -->
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">Date of Birth</p>
-                                <h4>{{ mother.date_of_birth }}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">Aadhar Number</p>
-                                <h4>{{ mother.aadhar }}</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">Primary Mobile Number</p>
-                                <h4>{{ mother.mobile1 }}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">Secondary Mobile Number</p>
-                                <h4>{{ mother.mobile2 }}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">Blood Group</p>
-                                <h4>{{ mother.blood_group }}</h4>
+                            <div class="card-content table-responsive">
+                                <table class="table table-hover">
+                                    <!-- <thead class="">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Date of Birth</th>
+                                            <th>Gender</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead> -->
+                                    <tbody>
+                                        <tr *ngFor="let kiddo of children">
+                                            <td>{{kiddo.fields.first_name}}</td>
+                                            <td>{{kiddo.fields.date_of_birth}}</td>
+                                            <td>{{kiddo.fields.gender}}</td>
+                                            <td>HIV {{kiddo.fields.hiv_status}}</td>
+                                            <td>
+                                                <button (click)="immunizeChild(kiddo.fields.pk)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.IMMUNIZE' | translate }}</button>
+                                                <button (click)="viewChildProfile(kiddo.fields.pk)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.VIEW PROFILE' | translate }}</button>
+                                                <button (click)="viewChildProfile(kiddo.fields.pk)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.REPORT AEFI' | translate }}</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">Highest Qualification</p>
-                                <h4>{{ mother.education }}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">Economic Status</p>
-                                <h4>{{ mother.economic_status }}</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group form-black label-floating is-empty">
-                                <p class="category">HIV Status</p>
-                                <h4>HIV {{ mother.hiv_status }}</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <button (click)="editMother(mother)" type="submit" class="btn btn-danger pull-left">{{ 'MAIN.EDIT PROFILE' | translate }}</button>
-                    <button (click)="addChild(mother.pk)" type="submit" class="btn btn-danger pull-left">{{ 'MAIN.ADD CHILD' | translate }}</button>
-                    <div class="clearfix"></div>
                 </div>
             </div>
-            <div *ngIf="model != 'mother' && model != 'child'"class="card">
+            <div *ngIf="model != 'mother' && model != 'child'" class="card">
                 <div class="card-header" data-background-color="red">
                     <h4 class="title">{{ "MAIN.SEARCH" | translate }}</h4>
                     <p class="category"></p>
