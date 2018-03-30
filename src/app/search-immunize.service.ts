@@ -28,4 +28,16 @@ export class SearchImmunizeService {
 
 		return this.http.post('http://127.0.0.1:8000/api/children/filter/', JSON.stringify(object), headers)
 	}
+
+	sendImmunizations(id: number, date: string, vaccine_ids: number, campaign_id: number, centre_id: number){
+		let object = {
+			child_id: id,
+			date_of_vaccination: date,
+			vaccine_id: vaccine_ids,
+			campaign_id: campaign_id,
+			centre_id: centre_id
+		}
+		console.log(object)
+		return this.http.post('http://127.0.0.1:8000/api/immunizations/', JSON.stringify(object))
+	}
 }
