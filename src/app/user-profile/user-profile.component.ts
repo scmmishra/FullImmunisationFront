@@ -23,7 +23,6 @@ export class UserProfileComponent implements OnInit {
             if (params.model == 'child') {
                 this.model = 'child';
                 this.child = params;
-                console.log('HAHAHAHHA');
                 console.log(this.child);
             } else if (params.model == 'mother') {
                 this.model = 'mother';
@@ -34,11 +33,14 @@ export class UserProfileComponent implements OnInit {
         });
     }
 
-    immunizeChild(primk){
-        console.log(primk)
-    }
-    viewChildProfile(pk){
+    immunizeChild(pk){
+        console.log("Redirecting to Immunization Module")
         console.log(pk)
+    }
+    viewChildProfile(kid){
+        console.log(kid);
+        kid['model'] = "child";
+        this.router.navigate(["/user-profile", kid]);
     }
     getChildren() {
         this.http
