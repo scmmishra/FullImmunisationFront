@@ -59,7 +59,7 @@ export class ImmunizationComponent implements OnInit {
     }
     else{
       console.log({id: id, date: new Date().toISOString().substring(0,10), vaccinesRem: this.selectedValues[index].toString(), campaign_id: 2, centre_id: 2});
-      //function to clear everything
+      //conditional clearing of the specific entry or refresh the entire page in case of failure
     }
   }
   

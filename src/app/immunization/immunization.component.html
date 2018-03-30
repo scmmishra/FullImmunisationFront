@@ -49,7 +49,7 @@
                     <form>
                       <span *ngFor="let vacc of imm.fields.pending">
                           
-                          <input type="checkbox" name="{{vacc.fields.name}}" value="{{vacc.fields.name}}" (change)="change(imm.pk, vacc.pk)"/><!-- replace fields.name with vacc.pk -->
+                          <input type="checkbox" name="{{vacc.fields.name}}" value="{{vacc.fields.name}}" (change)="change(imm.pk, vacc.pk)"/><!-- function to find the index of the child-->
                           {{vacc.fields.name}}
 
                       </span>
