@@ -26,6 +26,8 @@ import { RegistermotherComponent } from './registermother/registermother.compone
 import { LoginComponent } from './login/login.component';
 import { SearchService } from './search.service'
 
+import { AefiComponent } from './aefi/aefi.component'
+
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
@@ -42,7 +44,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CampaignComponent,
     RegisterchildComponent,
     RegistermotherComponent,
+
     LoginComponent,
+    AefiComponent,
   ],
   imports: [
     BrowserModule,

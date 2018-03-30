@@ -98,9 +98,9 @@
                                             <td>{{kiddo.fields.gender}}</td>
                                             <td>HIV {{kiddo.fields.hiv_status}}</td>
                                             <td>
-                                                <button (click)="immunizeChild(kiddo.fields.pk)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.IMMUNIZE' | translate }}</button>
-                                                <button (click)="viewChildProfile(kiddo.fields.pk)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.VIEW PROFILE' | translate }}</button>
-                                                <button (click)="viewChildProfile(kiddo.fields.pk)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.REPORT AEFI' | translate }}</button>
+                                                <button (click)="immunizeChild(kiddo.fields)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.IMMUNIZE' | translate }}</button>
+                                                <button (click)="viewChildProfile(kiddo.fields)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.VIEW PROFILE' | translate }}</button>
+                                                <button type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.REPORT AEFI' | translate }}</button>
                                             </td>
                                         </tr>
                                     </tbody>
