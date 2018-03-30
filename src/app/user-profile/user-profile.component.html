@@ -121,9 +121,9 @@
                                 <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
                                     <label class="control-label">Mother ID</label>
                                     <!-- <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)"> -->
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" #idBox (keyup)="search(idBox.value)">
                                 </div>
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
