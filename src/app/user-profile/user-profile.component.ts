@@ -52,7 +52,7 @@ export class UserProfileComponent implements OnInit {
                 this.profileList = data.json().data;
                 console.log(data.json().data);
                 /*this.searchServ.getKids(this.profileList[0].pk).subscribe(
-                    data => {console.log(data);} 
+                    data => {console.log(data);}
                 )*/
             },
                 error => {console.log("Error")});
@@ -99,8 +99,14 @@ export class UserProfileComponent implements OnInit {
         ]);
     }
 
+    viewProfileDelta(motherModel, mother_pk){
+        motherModel['pk'] = mother_pk;
+        motherModel['model'] = 'mother';
+        this.router.navigate(['/user-profile', motherModel]);
+    }
     editMother(mother) {
         console.log(mother);
         this.router.navigate(['/registration'], mother); //add mother object as input here
     }
+
 }

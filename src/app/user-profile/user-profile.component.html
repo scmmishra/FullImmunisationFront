@@ -1,7 +1,7 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div  *ngIf="model == 'mother'">
+            <div *ngIf="model == 'mother'">
                 <div class="card">
                     <div class="card-header" data-background-color="red">
                         <h4 class="title">{{ "MAIN.MOTHER PROFILE" | translate }}</h4>
@@ -114,24 +114,41 @@
                 <div class="card-header" data-background-color="red">
                     <h4 class="title">{{ "MAIN.SEARCH" | translate }}</h4>
                     <p class="category"></p>
-                    <div class="card-content">
-                        <div class="row">
-                            <!-- Here goes the form -->
-                            <div class="col-md-3">
-                                <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
-                                    <label class="control-label">Mother ID</label>
-                                    <!-- <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)"> -->
-                                    <input #id class="form-control" type="text" (keyup)="search(id.value)">
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <!-- Here goes the form -->
+                        <div class="col-md-12">
+                            <div class="form-group form-black label-floating is-empty">
+                                <label class="control-label">Mother ID</label>
+                                <!-- <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)"> -->
+                                <input #id class="form-control" type="number" (keyup)="search(id.value)">
+
+                                <div *ngIf="makeVisible">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Registration Date</th>
+                                                <th>Primary Mobile Number</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr *ngFor="let mother of profileList">
+                                                <td>{{mother.fields.first_name}} {{mother.fields.last_name}}</td>
+                                                <td>{{mother.fields.registration_date}}</td>
+                                                <td>{{mother.fields.mobile1}}</td>
+                                                <td>
+                                                    <button (click)="viewProfileDelta(mother.fields, mother.pk)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.VIEW PROFILE' | translate }}</button>
+                                                    <button (click)="addChild(mother.pk)" type="submit" style="margin:0px;" class="btn btn-danger">{{ 'MAIN.ADD CHILD' | translate }}</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div *ngIf = "makeVisible">
-                <ul>
-                    <li *ngFor="let mother of profileList">{{mother.pk}} - {{mother.fields.first_name}} {{mother.fields.last_name}}</li>
-                </ul>
             </div>
             <div *ngIf="model == 'child'" class="card">
                 <div class="card-header" data-background-color="red">
