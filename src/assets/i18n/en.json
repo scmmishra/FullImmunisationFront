@@ -19,6 +19,27 @@
         "REGISTRATION": "Registration",
         "CAMPAIGN": "Campaign"
     },
+    "REGISTER":{
+        "FIRST NAME":"First Name",
+        "LAST NAME":"Last Name",
+        "AADHAR CARD NUMBER":"Aadhaar Card Number",
+        "MOBILE NUMBER":"Mobile Number",
+        "BLOOD GROUP":"Blood Group",
+        "EDUCATION":"Education",
+        "ILLITERATE":"Illiterate",
+        "PRIMARY":"Primary",
+        "MIDDLE SCHOOL":"Middle School",
+        "HIGH SCHOOL":"High School",
+        "GRADUATE":"Graduate",
+        "ECONOMIC STATUS":"Economic Status",
+        "ABOVE POVERTY LINE":"Above Poverty Line",
+        "BELOVE POVERTY LINE":"Above Poverty Line",
+        "INFORMATION NOT AVAILABLE":"Information Not Available",
+        "IS HIV POSITIVE":"Is HIV Positive?",
+        "HIV POSITIVE":"Hiv Positive",
+        "HIV NEGATIVE":"Hiv Negative",
+        "DATE OF BIRTH":"Date of Birth"
+    },
     "BCG1":{
         "TITLE": "BCG 1",
         "TIMING": "At Birth",
