@@ -41,16 +41,18 @@ export class UserProfileComponent implements OnInit {
         });
     }
 
-    search(id: string){
+    search(id: number){
         let first_name = "";
         let last_name = "";
+        console.log(id);
         this.searchServ.searchMother(id, first_name, last_name).subscribe(data => {
             this.profileList = data.json().data; 
             console.log(data.json().data);
             /*this.searchServ.getKids(this.profileList[0].pk).subscribe(
                 data => {console.log(data);} 
             )*/
-        });
+        },
+            error => {console.log("Error")});
     }
 
     immunizeChild(primk){

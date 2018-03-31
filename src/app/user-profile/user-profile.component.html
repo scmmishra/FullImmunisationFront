@@ -1,20 +1,3 @@
-Skip to content
- 
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @RnabSanyal
-Sign out
-2
-0 0 scmmishra/FullImmunisationFront Private
- Code  Issues 3  Pull requests 2  Projects 0  Wiki  Insights
-FullImmunisationFront/src/app/user-profile/user-profile.component.html
-5a9e1f4  14 hours ago
-@scmmishra scmmishra View profile button redirects to child profile
-     
-169 lines (168 sloc)  9.67 KB
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -138,7 +121,7 @@ FullImmunisationFront/src/app/user-profile/user-profile.component.html
                                 <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
                                     <label class="control-label">Mother ID</label>
                                     <!-- <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)"> -->
-                                    <input class="form-control" type="text">
+                                    <input #id class="form-control" type="text" (keyup)="search(id.value)">
                                 </div>
                             </div>
                         </div>
