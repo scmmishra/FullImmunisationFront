@@ -9,16 +9,16 @@ import {HeatmapLayer} from '@ngui/map';
     styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  /*  @ViewChild(HeatmapLayer) heatmapLayer: HeatmapLayer;
+  @ViewChild(HeatmapLayer) heatmapLayer: HeatmapLayer;
   heatmap: google.maps.visualization.HeatmapLayer;
   map: google.maps.Map;
   points = [];
-    */
+
     public now: Date = new Date();
     constructor() {}
     ngOnInit() {
         /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
-        /*this.heatmapLayer['initialized$'].subscribe(heatmap => {
+        this.heatmapLayer['initialized$'].subscribe(heatmap => {
             this.points = [
                 new google.maps.LatLng(22.40750361337623, 88.22472558594366),
                 new google.maps.LatLng(22.484738519411454, 88.24303733396073),
@@ -85,7 +85,7 @@ export class DashboardComponent implements OnInit {
             ];
             this.heatmap = heatmap;
             this.map = this.heatmap.getMap();
-        });*/
+        });
 
         const dataRIC = {
             labels: ["2015", "2016", "2017", "2018",
