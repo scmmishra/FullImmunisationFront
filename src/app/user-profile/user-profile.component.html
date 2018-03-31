@@ -128,6 +128,11 @@
                     </div>
                 </div>
             </div>
+            <div *ngIf = "makeVisible">
+                <ul>
+                    <li *ngFor="let mother of profileList">{{mother.pk}} - {{mother.fields.first_name}} {{mother.fields.last_name}}</li>
+                </ul>
+            </div>
             <div *ngIf="model == 'child'" class="card">
                 <div class="card-header" data-background-color="red">
                     <h4 class="title">{{ "MAIN.CHILD PROFILE" | translate }}</h4>

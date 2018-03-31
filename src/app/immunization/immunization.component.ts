@@ -67,7 +67,22 @@ export class ImmunizationComponent implements OnInit {
       //this.immServe.sendImmunizations(id, new Date().toISOString().substring(0,10), selectedValues[index].toString(), 2, 2).subscribe()
 
       for (var vacc of this.selectedValues[index]){
-        this.immServe.sendImmunizations(id, new Date().toISOString().substring(0,10), vacc, 2, 2).subscribe()
+        if (this.selectedValues.indexOf(vacc) != this.selectedValues.length - 1){
+          this.immServe.sendImmunizations(id, new Date().toISOString().substring(0,10), vacc, 2, 2).subscribe();
+        } else {
+          this.immServe.sendImmunizations(id, new Date().toISOString().substring(0,10), vacc, 2, 2).subscribe(
+            data => {
+              this.immServe.searchImmunization(this.id, this.first_name, this.last_name).subscribe(
+                data => {
+                  this.immList = data.json().data; console.log(data.json().data)
+                  this.selectedValues = [];
+                  this.selectedIds = [];
+                }
+              );
+  
+            }
+          );
+        }
       }
 
       this.immServe.searchImmunization(this.id, this.first_name, this.last_name).subscribe(data => {this.immList = data.json().data; console.log(data.json().data)});

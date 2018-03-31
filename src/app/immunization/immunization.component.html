@@ -46,11 +46,13 @@
                     </ul>-->
                     <form>
                       <div class = "row">
+                        <h5>Vaccinations Pending:</h5>
                         <div class="col-sm-4">
                           <span *ngFor="let vacc of imm.fields.pending">
                               
-                              <input type="checkbox" name="{{vacc.fields.name}}" value="{{vacc.fields.name}}" (change)="change(imm.pk, vacc.pk)"/><!-- function to find the index of the child-->
-                              {{vacc.fields.name}}
+                              <input id = "{{vacc.fields.name}}" type="checkbox" name="{{vacc.fields.name}}" value="{{vacc.fields.name}}" (change)="change(imm.pk, vacc.pk)"/><!-- function to find the index of the child-->
+                              <label for = "{{vacc.fields.name}}"><span style="margin: 0; padding: 0; color: black">{{vacc.fields.name}}</span></label>
+                              <br>
 
                           </span>
                         </div>

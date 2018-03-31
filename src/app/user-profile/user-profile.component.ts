@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
     public model: string;
     public children;
     public profileList: any[];
+    public makeVisible: boolean = false;
 
     constructor(
         private http: Http,
@@ -41,18 +42,26 @@ export class UserProfileComponent implements OnInit {
         });
     }
 
-    search(id: number){
-        let first_name = "";
-        let last_name = "";
-        console.log(id);
-        this.searchServ.searchMother(id, first_name, last_name).subscribe(data => {
-            this.profileList = data.json().data; 
-            console.log(data.json().data);
-            /*this.searchServ.getKids(this.profileList[0].pk).subscribe(
-                data => {console.log(data);} 
-            )*/
-        },
-            error => {console.log("Error")});
+    search(id: string){
+        if (id != "") {
+            this.makeVisible = true;
+            let first_name = "";
+            let last_name = "";
+            console.log(id);
+            this.searchServ.searchMother(id, first_name, last_name).subscribe(data => {
+                this.profileList = data.json().data;
+                console.log(data.json().data);
+                /*this.searchServ.getKids(this.profileList[0].pk).subscribe(
+                    data => {console.log(data);} 
+                )*/
+            },
+                error => {console.log("Error")});
+        } else {
+            console.log("====");
+            console.log(this.profileList);
+            this.makeVisible = false;
+            let profileList = [];
+        }
     }
 
     immunizeChild(primk){

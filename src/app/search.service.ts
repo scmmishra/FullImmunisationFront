@@ -6,7 +6,7 @@ export class SearchService {
 
   constructor(private http: Http) { }
 
-  searchMother(id: number, first_name: string, last_name: string){
+  searchMother(id: string, first_name: string, last_name: string){
   	let object = {
   		fields: {
 			id: id,  

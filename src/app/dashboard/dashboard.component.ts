@@ -9,16 +9,16 @@ import {HeatmapLayer} from '@ngui/map';
     styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-    @ViewChild(HeatmapLayer) heatmapLayer: HeatmapLayer;
+  /*  @ViewChild(HeatmapLayer) heatmapLayer: HeatmapLayer;
   heatmap: google.maps.visualization.HeatmapLayer;
   map: google.maps.Map;
   points = [];
-
+    */
     public now: Date = new Date();
     constructor() {}
     ngOnInit() {
         /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
-        this.heatmapLayer['initialized$'].subscribe(heatmap => {
+        /*this.heatmapLayer['initialized$'].subscribe(heatmap => {
             this.points = [
                 new google.maps.LatLng(22.40750361337623, 88.22472558594366),
                 new google.maps.LatLng(22.484738519411454, 88.24303733396073),
@@ -85,7 +85,7 @@ export class DashboardComponent implements OnInit {
             ];
             this.heatmap = heatmap;
             this.map = this.heatmap.getMap();
-        });
+        });*/
 
         const dataRIC = {
             labels: ["2015", "2016", "2017", "2018",
@@ -204,6 +204,28 @@ export class DashboardComponent implements OnInit {
             optionsEmailsSubscriptionChart,
             responsiveOptions
         );
+        /*pie chart*/
+        let chart = new Chart( "#pichart", { // or DOM element
+            data: {
+              labels: ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
+              "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
+        
+              datasets: [
+                {
+                  label: "Some Data", type: 'bar',
+                  values: [25, 40, 30, 35, 8, 52, 17, -4]
+                },
+              ],
+        
+              yMarkers: [{ label: "Marker", value: 70 }],
+              yRegions: [{ label: "Region", start: -10, end: 50 }]
+            },
+        
+            title: "Performance ",
+            type: 'pie', // or 'bar', 'line', 'pie', 'percentage'
+            height: 250,
+            colors: ['purple', '#ffa3ef', 'red']
+          });
 
         //start animation for the Emails Subscription Chart
     }
