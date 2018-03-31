@@ -188,6 +188,34 @@ export class DashboardComponent implements OnInit {
               }
         })
 
+        const dataDisease = {
+            labels: ["Low Birth Weight", "Pneumonia", "TB", "Measles",
+            ],
+            datasets: [
+                {
+                    name: "Vaccines", type: "pie",
+                    values: [90,60,80,130]
+                },
+                {
+                    name: "Penta", type: "line",
+                    values: [80, 76, 72, 68, 65]
+                }
+            ]
+        }
+
+        const Disease = new Chart("#Disease", { // or a DOM element
+            data: dataDisease,
+            type: 'pie', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+            height: 250,
+            lineOptions: {
+                dotSize: 4,          // default: 4
+                hideLine: 0,         // default: 0
+                hideDots: 0,         // default: 0
+                heatline: 0,         // default: 0
+                regionFill: 1        // default: 0
+              }
+        })
+
 
 
     }
