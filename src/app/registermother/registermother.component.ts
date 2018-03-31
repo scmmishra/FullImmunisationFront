@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
     templateUrl: './registermother.component.html',
     styleUrls: ['./registermother.component.scss'],
 })
+
 export class RegistermotherComponent implements OnInit {
     public now: Date = new Date();
     modelMother = new Mother(

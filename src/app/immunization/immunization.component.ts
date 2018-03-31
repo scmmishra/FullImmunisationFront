@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 
 //for return from service
 import { Observable } from 'rxjs/Observable';
@@ -10,7 +11,7 @@ import {
  } from 'rxjs/operators';
 
 import { SearchImmunizeService } from '../search-immunize.service';
-
+//user-profile;first_name=asdf;last_name=asdf;mobile1=1233121231;mobile2=1233211231;
 @Component({
   selector: 'app-immunization',
   templateUrl: './immunization.component.html',
@@ -24,9 +25,14 @@ export class ImmunizationComponent implements OnInit {
 
 
   public items: any[][];
-  constructor(private immServe: SearchImmunizeService) { 
-  }
-
+  constructor(private immServe: SearchImmunizeService, private route: ActivatedRoute, private router:Router) {
+    this.route.params.subscribe(
+      params => {
+        if(id>-1){
+          console.log("Found");
+        }
+      }
+    )
   id: string = "";
   first_name: string = "";
   last_name: string = "";
