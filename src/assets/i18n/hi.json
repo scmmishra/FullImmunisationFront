@@ -12,6 +12,27 @@
         "VIEW PROFILE": "प्रोफाइल देखिये",
         "REPORT AEFI": "एक.ई.एफ.आई रिपोर्ट करें"
     },
+    "REGISTER":{
+        "FIRST NAME":"पहला नाम",
+        "LAST NAME":"अंतिम नाम",
+        "AADHAR CARD NUMBER":"आधार कार्ड संख्या",
+        "MOBILE NUMBER":"मोबाइल नंबर",
+        "BLOOD GROUP":"रक्त समूह",
+        "EDUCATION":"शिक्षा",
+        "ILLITERATE":"निरक्षर",
+        "PRIMARY":"प्राथमिक शिक्षा",
+        "MIDDLE SCHOOL":"मध्य शिक्षा",
+        "HIGH SCHOOL":"उच्च शिक्षा",
+        "GRADUATE":"स्नातक",
+        "ECONOMIC STATUS":"आर्थिक स्थिति",
+        "ABOVE POVERTY LINE":"गौण रेखा से ऊपर",
+        "BELOVE POVERTY LINE":"नीचे गौण रेखा",
+        "INFORMATION NOT AVAILABLE":"जानकारी उपलब्ध नहीं है",
+        "IS HIV POSITIVE":"एचआईवी पॉजिटिव है?",
+        "HIV POSITIVE":"एचआईवी पॉजिटिव",
+        "HIV NEGATIVE":"एचआईवी नेगेटिव",
+        "DATE OF BIRTH":"जन्म की तारीख"
+    },
     "SIDEBAR": {
         "DASHBOARD": "डैशबोर्ड",
         "IMMUNIZATION": "प्रतिरक्षा",
