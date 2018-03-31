@@ -1,7 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
+import { SearchService } from '../search.service';
 import {ArrayType} from '@angular/compiler/src/output/output_ast';
+
 
 @Component({
     selector: 'app-user-profile',
@@ -13,11 +15,14 @@ export class UserProfileComponent implements OnInit {
     public child: object;
     public model: string;
     public children;
+    public profileList: any[];
+    public makeVisible: boolean = false;
 
     constructor(
         private http: Http,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private searchServ: SearchService
     ) {
         this.route.params.subscribe(params => {
             if (params.model == 'child') {
@@ -37,9 +42,32 @@ export class UserProfileComponent implements OnInit {
         });
     }
 
-    immunizeChild(pk) {
-        console.log('Redirecting to Immunization Module');
-        console.log(pk);
+    search(id: string){
+        if (id != "") {
+            this.makeVisible = true;
+            let first_name = "";
+            let last_name = "";
+            console.log(id);
+            this.searchServ.searchMother(id, first_name, last_name).subscribe(data => {
+                this.profileList = data.json().data;
+                console.log(data.json().data);
+                /*this.searchServ.getKids(this.profileList[0].pk).subscribe(
+                    data => {console.log(data);} 
+                )*/
+            },
+                error => {console.log("Error")});
+        } else {
+            console.log("====");
+            console.log(this.profileList);
+            this.makeVisible = false;
+            let profileList = [];
+        }
+    }
+
+    immunizeChild(primk){
+        console.log(primk);
+        this.router.navigate(['/immunization', primk])
+        this.searchServ.searchMother(primk, "", "").subscribe(data => {this.profileList = data.json().data; console.log(data.json().data)});
     }
     viewChildProfile(kid) {
         console.log('Redirecting to Profile Page');
@@ -73,6 +101,6 @@ export class UserProfileComponent implements OnInit {
 
     editMother(mother) {
         console.log(mother);
-        this.router.navigate(['/registration'], mother);
+        this.router.navigate(['/registration'], mother); //add mother object as input here
     }
 }

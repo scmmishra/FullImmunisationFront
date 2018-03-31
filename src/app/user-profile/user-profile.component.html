@@ -121,12 +121,17 @@
                                 <div class="form-group form-black label-floating is-empty" style="margin: 0; padding: 0">
                                     <label class="control-label">Mother ID</label>
                                     <!-- <input #searchBoxId type="text" class="form-control" (keyup)="search1(searchBoxId.value, searchBoxFName.value, searchBoxLName.value)"> -->
-                                    <input class="form-control" type="text">
+                                    <input #id class="form-control" type="text" (keyup)="search(id.value)">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div *ngIf = "makeVisible">
+                <ul>
+                    <li *ngFor="let mother of profileList">{{mother.pk}} - {{mother.fields.first_name}} {{mother.fields.last_name}}</li>
+                </ul>
             </div>
             <div *ngIf="model == 'child'" class="card">
                 <div class="card-header" data-background-color="red">

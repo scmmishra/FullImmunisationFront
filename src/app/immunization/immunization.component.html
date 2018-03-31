@@ -31,10 +31,8 @@
             </div> <!-- Here goes the form -->
           </div>
         </div>
-        <div class="card-content">
-          <p> Selected value: {{selectedValues | json}} </p> 
+        <div class="card-content"> 
           <div *ngIf = "makeVisible">
-              {{immList}}
               <h4 class="title">Results</h4>
               <collapsible-list [type]="'accordion'">
     
@@ -47,13 +45,19 @@
                       <li *ngFor="let vacc of imm.pending"> {{vacc}} </li>
                     </ul>-->
                     <form>
-                      <span *ngFor="let vacc of imm.fields.pending">
-                          
-                          <input type="checkbox" name="{{vacc.fields.name}}" value="{{vacc.fields.name}}" (change)="change(imm.pk, vacc.pk)"/><!-- function to find the index of the child-->
-                          {{vacc.fields.name}}
+                      <div class = "row">
+                        <h5>Vaccinations Pending:</h5>
+                        <div class="col-sm-4">
+                          <span *ngFor="let vacc of imm.fields.pending">
+                              
+                              <input id = "{{vacc.fields.name}}" type="checkbox" name="{{vacc.fields.name}}" value="{{vacc.fields.name}}" (change)="change(imm.pk, vacc.pk)"/><!-- function to find the index of the child-->
+                              <label for = "{{vacc.fields.name}}"><span style="margin: 0; padding: 0; color: black">{{vacc.fields.name}}</span></label>
+                              <br>
 
-                      </span>
-                      <button (click) = Submit(imm.pk)>Submit</button>
+                          </span>
+                        </div>
+                      </div>
+                      <button class="btn btn-danger" style = "margin: 0px; " (click) = Submit(imm.pk)>Submit</button>
                     </form>
                   </collapsible-body>
                 </collapsible-list-item>

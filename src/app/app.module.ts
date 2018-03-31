@@ -24,6 +24,8 @@ import { CampaignComponent } from './campaign/campaign.component';
 import { RegisterchildComponent } from './registerchild/registerchild.component';
 import { RegistermotherComponent } from './registermother/registermother.component';
 import { AefiComponent } from './aefi/aefi.component';
+import { LoginComponent } from './login/login.component';
+import { SearchService } from './search.service'
 import { NguiMapModule } from '@ngui/map';
 
 
@@ -42,7 +44,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CampaignComponent,
     RegisterchildComponent,
     RegistermotherComponent,
+
+    LoginComponent,
     AefiComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyDfHJrD_-teoecGuMVS5cXSWRN6wJPZ1so&libraries=visualization,places,drawing'})
   ],
-  providers: [ SearchImmunizeService ],
+  providers: [ SearchImmunizeService, SearchService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
